@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Postres Fit que Venden</title>
+<meta name="description" content="Tu plan para ganar tu propia plata desde tu cocina con postres saludables.">
+<meta name="theme-color" content="#FBF6EE">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234E7A5C' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 11h16l-2 9H6z'/%3E%3Cpath d='M5 11a7 7 0 0 1 14 0'/%3E%3Cpath d='M12 4V2'/%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#FBF6EE; --card:#FFFDF9; --ink:#3B2F2A; --muted:#7A6B63; --line:#EEE3D5;
+  --sage:#7FA38A; --sage-d:#4A7558; --sage-l:#E4EEE6; --rasp:#D45D79; --rasp-d:#B23F5C; --rasp-l:#FBE4EA;
+  --cream2:#F5ECDF; --warn:#9A5A12; --warn-l:#FDF1DC;
+  --r:22px; --r-sm:16px;
+  --shadow:0 10px 28px rgba(110,85,60,.09), 0 2px 6px rgba(110,85,60,.05);
+  --shadow-sm:0 4px 14px rgba(110,85,60,.08);
+  --font:"Nunito", ui-rounded, "SF Pro Rounded", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;min-height:100vh}
+[hidden]{display:none!important}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+a{color:var(--sage-d)}
+h1,h2,h3,h4{margin:0;line-height:1.2;font-weight:900;letter-spacing:-.01em}
+p{margin:0}
+.ic{flex:none;display:inline-block;vertical-align:middle}
+:focus-visible{outline:3px solid var(--rasp);outline-offset:2px;border-radius:10px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- Botones ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:0 22px;border-radius:var(--r-sm);border:0;font-weight:800;font-size:1rem;transition:transform .12s ease, background .2s, box-shadow .2s;text-decoration:none;white-space:nowrap}
+.btn:active{transform:scale(.98)}
+.btn-primary{background:var(--sage-d);color:#fff;box-shadow:0 8px 18px rgba(74,117,88,.28)}
+.btn-primary:hover{background:#3f664b}
+.btn-rasp{background:var(--rasp-d);color:#fff;box-shadow:0 8px 18px rgba(178,63,92,.25)}
+.btn-rasp:hover{background:#9c3450}
+.btn-soft{background:var(--sage-l);color:var(--sage-d)}
+.btn-soft:hover{background:#d8e7dc}
+.btn-ghost{background:transparent;color:var(--ink);border:2px solid var(--line)}
+.btn-ghost:hover{background:var(--cream2)}
+.btn-block{width:100%}
+.btn-sm{min-height:42px;padding:0 16px;font-size:.92rem;border-radius:14px}
+.btn[disabled]{opacity:.5;cursor:not-allowed;box-shadow:none}
+.icon-btn{width:46px;height:46px;border-radius:50%;border:0;background:var(--card);box-shadow:var(--shadow-sm);display:inline-grid;place-items:center;color:var(--ink)}
+.icon-btn:hover{background:#fff}
+.link{background:none;border:0;padding:6px 0;color:var(--sage-d);font-weight:800;text-decoration:underline;text-underline-offset:3px}
+
+/* ---------- Tarjetas ---------- */
+.card{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);padding:20px;border:1px solid rgba(238,227,213,.7)}
+.card + .card{margin-top:16px}
+.card h3{font-size:1.15rem;margin-bottom:6px}
+.muted{color:var(--muted)}
+.small{font-size:.88rem}
+.eyebrow{font-size:.78rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--sage-d)}
+.pill{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:999px;background:var(--sage-l);color:var(--sage-d);font-weight:800;font-size:.82rem}
+.pill.rasp{background:var(--rasp-l);color:var(--rasp-d)}
+.pill.warn{background:var(--warn-l);color:var(--warn)}
+.stack{display:flex;flex-direction:column;gap:12px}
+.row{display:flex;align-items:center;gap:12px}
+.row.wrap{flex-wrap:wrap}
+.between{justify-content:space-between}
+.gap16{gap:16px}
+.mt8{margin-top:8px}.mt12{margin-top:12px}.mt16{margin-top:16px}.mt24{margin-top:24px}
+.alert{border-radius:14px;padding:12px 14px;background:var(--warn-l);color:var(--warn);font-weight:700;font-size:.92rem;display:flex;gap:10px;align-items:flex-start}
+.alert.ok{background:var(--sage-l);color:var(--sage-d)}
+.alert.rasp{background:var(--rasp-l);color:var(--rasp-d)}
+.note{font-size:.86rem;color:var(--muted);background:var(--cream2);border-radius:14px;padding:10px 14px}
+
+/* ---------- Formularios ---------- */
+label.lbl{display:block;font-weight:800;font-size:.92rem;margin-bottom:6px}
+.field{margin-bottom:14px}
+.input, select.input, textarea.input{width:100%;min-height:52px;padding:12px 16px;border-radius:14px;border:2px solid var(--line);background:#fff;font-size:1rem;transition:border .2s}
+textarea.input{min-height:96px;resize:vertical}
+.input:focus{outline:none;border-color:var(--sage)}
+.input.err{border-color:var(--rasp)}
+.err-msg{color:var(--rasp-d);font-weight:700;font-size:.86rem;margin-top:6px;min-height:1em}
+.money{display:flex;align-items:stretch;gap:8px}
+.money .sym{display:grid;place-items:center;min-width:52px;padding:0 10px;border-radius:14px;background:var(--cream2);font-weight:900}
+.check{display:flex;align-items:center;gap:10px;padding:10px 0;cursor:pointer}
+.check input{width:22px;height:22px;accent-color:var(--sage-d)}
+
+/* ---------- Onboarding ---------- */
+#onb{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px 18px}
+.onb-box{width:100%;max-width:520px}
+.welcome-badge{width:88px;height:88px;border-radius:28px;background:linear-gradient(145deg,var(--sage-l),#fff);display:grid;place-items:center;color:var(--sage-d);box-shadow:var(--shadow);margin-bottom:22px}
+.welcome h1{font-size:clamp(2.1rem,7vw,3rem)}
+.welcome h1 span{color:var(--rasp-d)}
+.welcome .sub{font-size:1.15rem;color:var(--muted);margin:10px 0 22px;font-weight:600}
+.promise li{display:flex;gap:12px;align-items:flex-start;padding:8px 0;font-weight:700}
+.promise li .dot{width:30px;height:30px;border-radius:10px;background:var(--rasp-l);color:var(--rasp-d);display:grid;place-items:center;flex:none}
+.promise{list-style:none;padding:0;margin:0 0 26px}
+.qtop{display:flex;align-items:center;gap:12px;margin-bottom:26px}
+.progress{flex:1;height:10px;background:var(--cream2);border-radius:99px;overflow:hidden}
+.progress > i{display:block;height:100%;background:linear-gradient(90deg,var(--sage),var(--sage-d));border-radius:99px;transition:width .35s ease}
+.qcount{font-weight:800;color:var(--muted);font-size:.9rem;min-width:40px;text-align:right}
+.qtitle{font-size:clamp(1.5rem,5vw,2rem);margin-bottom:8px}
+.qhelp{color:var(--muted);margin-bottom:22px;font-weight:600}
+.opt{width:100%;text-align:left;display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:64px;padding:14px 18px;margin-bottom:12px;border-radius:18px;border:2px solid var(--line);background:var(--card);font-weight:800;font-size:1.05rem;box-shadow:var(--shadow-sm);transition:border .15s, background .15s}
+.opt:hover{border-color:var(--sage)}
+.opt.sel{border-color:var(--sage-d);background:var(--sage-l)}
+.opt .tick{width:26px;height:26px;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center;color:#fff;flex:none}
+.opt.sel .tick{background:var(--sage-d);border-color:var(--sage-d)}
+.loading{text-align:center}
+.spinner{width:84px;height:84px;margin:0 auto 26px;border-radius:50%;border:8px solid var(--sage-l);border-top-color:var(--sage-d);animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.load-steps{list-style:none;padding:0;margin:18px auto 0;max-width:320px;text-align:left}
+.load-steps li{display:flex;gap:10px;align-items:center;padding:6px 0;color:var(--muted);font-weight:700;transition:color .3s}
+.load-steps li.on{color:var(--sage-d)}
+.reveal h1{font-size:clamp(1.8rem,6vw,2.4rem)}
+.reveal-units{display:flex;align-items:baseline;gap:10px;margin:6px 0}
+.reveal-units b{font-size:3.2rem;line-height:1;color:var(--rasp-d);font-weight:900}
+.mini-postres{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0}
+.mini-postres .p{background:var(--card);border-radius:18px;box-shadow:var(--shadow-sm);overflow:hidden}
+.mini-postres .p .ph{aspect-ratio:1}
+.mini-postres .p span{display:block;padding:8px 10px 10px;font-weight:800;font-size:.86rem;line-height:1.2}
+
+/* ---------- Estructura app ---------- */
+#app{min-height:100vh}
+.sidebar{display:none}
+.main{min-height:100vh}
+.topbar{position:sticky;top:0;z-index:20;background:rgba(251,246,238,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 16px;padding-top:max(12px,env(safe-area-inset-top))}
+.topbar .brand{display:flex;align-items:center;gap:10px;font-weight:900;font-size:1.05rem}
+.brand-ic{width:38px;height:38px;border-radius:13px;background:var(--sage-l);color:var(--sage-d);display:grid;place-items:center}
+.topbar .actions{display:flex;gap:8px}
+#view{padding:8px 16px 140px;max-width:620px;margin:0 auto;outline:none}
+.page-title{font-size:clamp(1.7rem,6vw,2.2rem);margin:8px 0 4px}
+.page-title span{color:var(--rasp-d)}
+.page-sub{color:var(--muted);font-weight:600;margin-bottom:18px}
+.bottomnav{position:fixed;left:12px;right:12px;bottom:max(12px,env(safe-area-inset-bottom));z-index:30;background:var(--card);border-radius:26px;box-shadow:0 14px 34px rgba(110,85,60,.16);display:grid;grid-template-columns:repeat(5,1fr);padding:8px;border:1px solid var(--line)}
+.nav-btn{border:0;background:none;display:flex;flex-direction:column;align-items:center;gap:3px;padding:8px 2px;border-radius:18px;font-weight:800;font-size:.72rem;color:var(--muted);min-height:56px;justify-content:center}
+.nav-btn.on{color:var(--sage-d);background:var(--sage-l)}
+.sos-fab{position:fixed;right:18px;bottom:calc(max(12px,env(safe-area-inset-bottom)) + 92px);z-index:31;display:flex;align-items:center;gap:8px;border:0;border-radius:999px;padding:12px 18px 12px 14px;background:var(--rasp-d);color:#fff;font-weight:900;box-shadow:0 10px 24px rgba(178,63,92,.35)}
+.sos-fab:hover{background:#9c3450}
+
+/* ---------- Hoy ---------- */
+.hero{background:linear-gradient(150deg,#fff 0%,var(--sage-l) 100%);}
+.hero .day{font-size:1.5rem;margin:6px 0 4px}
+.stat{display:flex;align-items:center;gap:14px}
+.stat .big{font-size:2.2rem;font-weight:900;line-height:1}
+.flame{width:56px;height:56px;border-radius:18px;background:var(--rasp-l);color:var(--rasp-d);display:grid;place-items:center;flex:none}
+.bar{height:14px;border-radius:99px;background:var(--cream2);overflow:hidden;margin:10px 0 6px}
+.bar > i{display:block;height:100%;background:linear-gradient(90deg,var(--rasp),var(--rasp-d));border-radius:99px;transition:width .4s}
+.bar.sage > i{background:linear-gradient(90deg,var(--sage),var(--sage-d))}
+.hoy-grid{display:grid;gap:16px}
+.hoy-grid .card + .card{margin-top:0}
+.chip-list{display:flex;flex-wrap:wrap;gap:8px}
+
+/* ---------- Plan ---------- */
+.stage{margin-top:22px}
+.stage h3{font-size:1.05rem;display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.stage h3 .n{width:30px;height:30px;border-radius:10px;background:var(--sage-l);color:var(--sage-d);display:grid;place-items:center;font-size:.9rem}
+.days{display:grid;grid-template-columns:1fr;gap:10px}
+.day-btn{display:flex;align-items:center;gap:14px;width:100%;text-align:left;padding:14px 16px;border-radius:18px;border:2px solid var(--line);background:var(--card);box-shadow:var(--shadow-sm);font-weight:800}
+.day-btn .num{width:42px;height:42px;border-radius:14px;background:var(--cream2);display:grid;place-items:center;font-weight:900;flex:none}
+.day-btn.done{border-color:var(--sage)}
+.day-btn.done .num{background:var(--sage-d);color:#fff}
+.day-btn.next{border-color:var(--rasp)}
+.day-btn.next .num{background:var(--rasp-l);color:var(--rasp-d)}
+.day-btn small{display:block;color:var(--muted);font-weight:700}
+
+/* ---------- Postres ---------- */
+.rgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.rcard{display:flex;flex-direction:column;text-align:left;padding:10px;border-radius:var(--r);background:var(--card);box-shadow:var(--shadow);border:1px solid rgba(238,227,213,.7);transition:transform .15s}
+.rcard:hover{transform:translateY(-2px)}
+.rcard .ph{aspect-ratio:1;border-radius:16px}
+.rcard h4{font-size:.98rem;margin:10px 4px 4px}
+.rcard .meta{display:flex;flex-wrap:wrap;gap:6px;margin:0 4px 4px;font-size:.78rem;color:var(--muted);font-weight:700}
+.rcard .mine{position:absolute}
+.ph{position:relative;overflow:hidden;display:grid;place-items:center;color:rgba(74,117,88,.55);background:linear-gradient(145deg,#EAF1EC,#F8E7EC)}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ph.g-horneado{background:linear-gradient(145deg,#F6E7D6,#EAF1EC)}
+.ph.g-galleta{background:linear-gradient(145deg,#F3E4D2,#FBE4EA)}
+.ph.g-vaso{background:linear-gradient(145deg,#FBE4EA,#EAF1EC)}
+.ph.g-bocado{background:linear-gradient(145deg,#EDE1D6,#FBE4EA)}
+.ph .tag{position:absolute;left:8px;top:8px;background:rgba(255,253,249,.92);color:var(--ink);border-radius:999px;padding:4px 10px;font-size:.72rem;font-weight:900;display:flex;gap:4px;align-items:center}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 2px 10px;margin-bottom:6px;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:none;border:2px solid var(--line);background:var(--card);border-radius:999px;padding:10px 16px;font-weight:800;font-size:.92rem;min-height:44px}
+.tab.on{background:var(--sage-d);border-color:var(--sage-d);color:#fff}
+
+/* ---------- Ficha (modal grande) ---------- */
+.ficha-hero{position:relative;height:300px;margin:-20px -20px 0;border-radius:0}
+.ficha-hero .ph{position:absolute;inset:0;border-radius:0}
+.ficha-hero .top-actions{position:absolute;left:14px;right:14px;top:14px;display:flex;justify-content:space-between;z-index:2}
+.ficha-body{position:relative;margin:-28px -20px 0;background:var(--card);border-radius:28px 28px 0 0;padding:24px 20px 8px}
+.ficha-body h2{font-size:1.7rem}
+.facts{display:flex;flex-wrap:wrap;gap:16px;margin:12px 0 4px;color:var(--muted);font-weight:800;font-size:.92rem}
+.facts span{display:flex;align-items:center;gap:6px}
+.ing-list{list-style:none;padding:0;margin:8px 0}
+.ing-list li{display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px dashed var(--line)}
+.ing-list li button{width:28px;height:28px;border-radius:50%;border:2px solid var(--sage);background:#fff;display:grid;place-items:center;color:#fff;flex:none;padding:0}
+.ing-list li.ok button{background:var(--sage-d);border-color:var(--sage-d)}
+.ing-list li.ok span{text-decoration:line-through;color:var(--muted)}
+.steps{padding-left:0;list-style:none;counter-reset:s;margin:8px 0}
+.steps li{counter-increment:s;display:flex;gap:12px;padding:8px 0}
+.steps li::before{content:counter(s);width:30px;height:30px;border-radius:10px;background:var(--rasp-l);color:var(--rasp-d);display:grid;place-items:center;font-weight:900;flex:none}
+.sticky-cta{position:sticky;bottom:0;margin:16px -20px -20px;padding:14px 20px calc(14px + env(safe-area-inset-bottom));background:linear-gradient(180deg,rgba(255,253,249,0),var(--card) 30%);display:flex;gap:10px}
+.sticky-cta .btn{flex:1}
+
+/* ---------- Precios ---------- */
+.ing-row{padding:14px 0;border-bottom:1px solid var(--line)}
+.ing-row:last-child{border-bottom:0}
+.ing-row .name{font-weight:800}
+.ing-row .inputs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px}
+.ing-row .inputs label{font-size:.78rem;font-weight:800;color:var(--muted);display:block;margin-bottom:4px}
+.ing-row .inputs .input{min-height:46px;padding:10px 12px}
+.ing-row .unit-wrap{display:flex;gap:6px;align-items:center}
+.ing-row .unit-wrap span{font-weight:800;color:var(--muted);font-size:.85rem}
+.sum-row{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px dashed var(--line);font-weight:700}
+.sum-row b{font-weight:900}
+.sum-row.total{border-bottom:0;font-size:1.1rem}
+.big-price{font-size:2rem;font-weight:900;color:var(--sage-d)}
+
+/* ---------- Ventas ---------- */
+.order{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
+.order:last-child{border-bottom:0}
+.order .info{flex:1;min-width:0}
+.order .info b{display:block}
+.order .info small{color:var(--muted);font-weight:700}
+.shop li{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px dashed var(--line)}
+.shop{list-style:none;padding:0;margin:0}
+.shop li input{width:24px;height:24px;accent-color:var(--sage-d);flex:none}
+.shop li.ok span{text-decoration:line-through;color:var(--muted)}
+.empty{text-align:center;padding:24px 12px;color:var(--muted);font-weight:700}
+.empty .ic{color:var(--sage);margin-bottom:8px}
+
+/* ---------- Bonos ---------- */
+.msg{background:var(--cream2);border-radius:16px;padding:14px;margin-top:12px}
+.msg p{white-space:pre-wrap}
+.msg .row{margin-top:10px}
+table.cal{width:100%;border-collapse:collapse}
+table.cal td,table.cal th{padding:10px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;font-size:.94rem}
+table.cal th{font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.menu-day{padding:12px 0;border-bottom:1px solid var(--line)}
+.menu-day:last-child{border-bottom:0}
+.menu-day b{color:var(--sage-d)}
+
+/* ---------- Modal ---------- */
+#modal{position:fixed;inset:0;z-index:100;display:flex;align-items:flex-end;justify-content:center;background:rgba(59,47,42,.45);padding:0}
+.sheet{width:100%;max-height:92vh;overflow:auto;background:var(--card);border-radius:28px 28px 0 0;padding:20px;padding-bottom:calc(20px + env(safe-area-inset-bottom));animation:up .25s ease;position:relative}
+.sheet.full{max-height:100vh;height:100vh;border-radius:0}
+@keyframes up{from{transform:translateY(40px);opacity:.4}to{transform:none;opacity:1}}
+.sheet-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
+.sheet-head h2{font-size:1.35rem}
+.preview-img{width:100%;max-width:340px;display:block;margin:0 auto;border-radius:18px;box-shadow:var(--shadow)}
+#toast{position:fixed;left:50%;bottom:120px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:12px 20px;border-radius:999px;font-weight:800;opacity:0;pointer-events:none;transition:all .25s;z-index:200;max-width:90vw;text-align:center}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+#printArea{display:none}
+
+/* ---------- Computadora y tablet ---------- */
+@media (min-width:900px){
+  #app{display:grid;grid-template-columns:260px 1fr}
+  .sidebar{display:flex;flex-direction:column;gap:6px;position:sticky;top:0;height:100vh;padding:26px 18px;border-right:1px solid var(--line);background:rgba(255,253,249,.6)}
+  .sidebar .brand{display:flex;align-items:center;gap:12px;font-weight:900;font-size:1.1rem;line-height:1.15;margin-bottom:22px;padding:0 8px}
+  .side-btn{display:flex;align-items:center;gap:12px;border:0;background:none;padding:12px 14px;border-radius:16px;font-weight:800;color:var(--muted);text-align:left;width:100%;min-height:50px}
+  .side-btn:hover{background:var(--cream2);color:var(--ink)}
+  .side-btn.on{background:var(--sage-d);color:#fff;box-shadow:0 8px 18px rgba(74,117,88,.25)}
+  .side-sep{height:1px;background:var(--line);margin:10px 8px}
+  .sidebar .foot{margin-top:auto;font-size:.8rem;color:var(--muted);padding:0 8px}
+  .bottomnav{display:none}
+  .topbar{padding:18px 40px}
+  .topbar .actions,.topbar .brand{display:none}
+  .topbar{min-height:0;padding:0;background:none;position:static}
+  #view{max-width:1120px;padding:32px 40px 130px}
+  .sos-fab{bottom:28px;right:28px}
+  .hoy-grid{grid-template-columns:1.25fr 1fr;align-items:start}
+  .hoy-grid .span2{grid-column:1/-1}
+  .two-col{display:grid;grid-template-columns:1.2fr 1fr;gap:20px;align-items:start}
+  .two-col .card + .card{margin-top:0}
+  .two-col .sticky{position:sticky;top:24px}
+  .rgrid{grid-template-columns:repeat(3,1fr);gap:18px}
+  .days{grid-template-columns:repeat(3,1fr)}
+  #modal{align-items:center;padding:24px}
+  .sheet{max-width:640px;border-radius:28px;max-height:90vh}
+  .sheet.full{max-width:720px;height:auto;max-height:92vh;border-radius:28px}
+  .ficha-hero{height:340px;border-radius:28px 28px 0 0;overflow:hidden}
+  #toast{bottom:40px}
+}
+@media (min-width:1200px){ .rgrid{grid-template-columns:repeat(4,1fr)} }
+@media (max-width:380px){ .rgrid{gap:10px} .mini-postres{gap:6px} .nav-btn{font-size:.66rem} }
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+}
+
+/* ---------- Impresión de etiquetas ---------- */
+@media print{
+  body.printing > *:not(#printArea){display:none!important}
+  body.printing{background:#fff}
+  body.printing #printArea{display:block}
+  .labels{display:grid;grid-template-columns:1fr 1fr;gap:6mm}
+  .label{border:1.5px dashed #b9a99a;border-radius:4mm;padding:4mm 5mm;height:50mm;break-inside:avoid;font-family:var(--font);color:#3B2F2A}
+  .label .lb-brand{font-weight:900;font-size:13pt;color:#4A7558}
+  .label .lb-name{font-weight:900;font-size:12pt;margin-top:1mm}
+  .label .lb-tag{display:inline-block;margin-top:1.5mm;background:#FBE4EA;color:#B23F5C;border-radius:10mm;padding:.6mm 3mm;font-weight:800;font-size:8.5pt}
+  .label .lb-lines{margin-top:2.5mm;font-size:8.5pt;line-height:1.7}
+  .label .lb-contact{font-size:8pt;color:#7A6B63;margin-top:1mm}
+  @page{size:A4;margin:12mm}
+}
+</style>
+</head>
+<body>
+
+<div id="onb" hidden></div>
+
+<div id="app" hidden>
+  <aside class="sidebar" aria-label="Menú principal">
+    <div class="brand"><span class="brand-ic" data-ic="cake"></span><span>Postres Fit<br>que Venden</span></div>
+    <nav id="sideNav"></nav>
+    <p class="foot">Tus datos se guardan en este dispositivo.</p>
+  </aside>
+  <div class="main">
+    <header class="topbar">
+      <div class="brand"><span class="brand-ic" data-ic="cake"></span><span>Postres Fit que Venden</span></div>
+      <div class="actions">
+        <button class="icon-btn" data-go="bonos" aria-label="Bonos" data-ic="gift"></button>
+        <button class="icon-btn" data-act="ajustes" aria-label="Ajustes" data-ic="gear"></button>
+      </div>
+    </header>
+    <main id="view" tabindex="-1"></main>
+  </div>
+  <nav class="bottomnav" id="bottomNav" aria-label="Menú"></nav>
+  <button class="sos-fab" data-act="sos" aria-label="Botón SOS: ayuda rápida"><span data-ic="life"></span>SOS</button>
+</div>
+
+<div id="modal" hidden role="dialog" aria-modal="true"></div>
+<div id="toast" role="status" aria-live="polite"></div>
+<div id="printArea"></div>
+
+<script>
+/* =====================================================================
+   FOTOS DE LOS POSTRES
+   Las fotos van en la carpeta «fotos», junto a este archivo.
+   Para cambiar una, reemplaza el archivo con el mismo nombre. Si falta, se ve un fondo de color.
+   ===================================================================== */
+const FOTOS = {
+  budin: "fotos/budin.jpg",
+  muffins: "fotos/muffins.jpg",
+  brownie: "fotos/brownie.jpg",
+  galletas: "fotos/galletas.jpg",
+  alfajores: "fotos/alfajores.jpg",
+  barritas: "fotos/barritas.jpg",
+  crumble: "fotos/crumble.jpg",
+  bombones: "fotos/bombones.jpg",
+  cheesecake: "fotos/cheesecake.jpg",
+  tiramisu: "fotos/tiramisu.jpg",
+  conitos: "fotos/conitos.jpg",
+  trufas: "fotos/trufas.jpg",
+  chocotorta: "fotos/chocotorta.jpg",
+  turron: "fotos/turron.jpg"
+};
+
+/* ================== DATOS: INGREDIENTES ================== */
+// u: unidad de medida (g, ml o u = unidades). pack: tamaño de paquete sugerido.
+const INGS = {
+  banana:{n:"Bananas",alt:"plátanos / bananos",u:"u",pack:1},
+  huevo:{n:"Huevos",u:"u",pack:12},
+  avena:{n:"Avena",u:"g",pack:500},
+  harina:{n:"Harina integral",u:"g",pack:1000},
+  aceite:{n:"Aceite neutro",u:"ml",pack:900},
+  manteca:{n:"Manteca",alt:"mantequilla",u:"g",pack:200},
+  polvo:{n:"Polvo de hornear",u:"g",pack:50},
+  canela:{n:"Canela en polvo",u:"g",pack:25},
+  vainilla:{n:"Esencia de vainilla",u:"ml",pack:100},
+  endulzante:{n:"Endulzante granulado apto horno",alt:"eritritol o stevia granulada",u:"g",pack:250},
+  manzana:{n:"Manzanas",u:"u",pack:1},
+  cacao:{n:"Cacao amargo en polvo",u:"g",pack:150},
+  coco:{n:"Coco rallado",u:"g",pack:100},
+  dulce:{n:"Dulce de leche sin azúcar agregada",alt:"cajeta / arequipe / manjar",u:"g",pack:400},
+  pastamani:{n:"Pasta de maní sin azúcar",alt:"crema de cacahuate",u:"g",pack:350},
+  mani:{n:"Maní tostado sin sal",alt:"cacahuate",u:"g",pack:500},
+  semillas:{n:"Semillas surtidas",alt:"girasol, chía o lino",u:"g",pack:250},
+  yogur:{n:"Yogur natural sin azúcar",u:"g",pack:1000},
+  queso:{n:"Queso crema",u:"g",pack:290},
+  gelatina:{n:"Gelatina sin sabor",u:"g",pack:21},
+  frutos:{n:"Frutillas o frutos rojos",alt:"fresas",u:"g",pack:500},
+  limon:{n:"Limones",u:"u",pack:1},
+  cafe:{n:"Café instantáneo",u:"g",pack:100},
+  galletas:{n:"Galletitas de avena sin azúcar agregada",alt:"galletas",u:"g",pack:200},
+  choco:{n:"Chocolate sin azúcar",u:"g",pack:100},
+  leche:{n:"Leche",u:"ml",pack:1000}
+};
+
+/* ================== DATOS: LAS 14 RECETAS ==================
+   horno: "horno" | "sin" | "sarten" · grupo: horneado | galleta | vaso | bocado
+   ings: [clave, cantidad usada (en la unidad del ingrediente), texto que ve la usuaria] */
+const RECIPES = [
+ {id:"budin",n:"Budín de banana y avena",d:"Húmedo, rendidor y muy fácil",horno:"horno",dif:1,costo:"bajo",grupo:"horneado",individual:false,uso:["familia","vecinas","escuela"],base:2,rinde:10,ud:["porción","porciones"],tiempo:"50 min",
+  ings:[["banana",3,"3 bananas bien maduras"],["huevo",2,"2 huevos"],["avena",150,"150 g de avena procesada"],["aceite",60,"60 ml de aceite neutro"],["polvo",5,"1 cucharadita de polvo de hornear (5 g)"],["canela",2,"1 pizca de canela (2 g)"],["vainilla",5,"1 cucharadita de esencia de vainilla (5 ml)"]],
+  pasos:["Precalienta el horno a 180 °C y engrasa un molde de budín.","Pisa las bananas con un tenedor hasta hacer un puré.","Suma los huevos, el aceite y la vainilla, y mezcla bien.","Agrega la avena, el polvo de hornear y la canela. Mezcla sin batir de más.","Vuelca en el molde y hornea 35 a 40 minutos, hasta que un palillo salga seco.","Deja enfriar antes de desmoldar y cortar en 10 porciones."],
+  tip:"Véndelo entero o en porciones envueltas. Por porción suele dejar más ganancia."},
+ {id:"muffins",n:"Muffins de manzana y canela",d:"Por unidad o en caja de 6 para regalar",horno:"horno",dif:1,costo:"bajo",grupo:"horneado",individual:true,uso:["regalo","escuela","trabajo"],base:1,rinde:12,ud:["muffin","muffins"],tiempo:"40 min",
+  ings:[["manzana",2,"2 manzanas ralladas"],["huevo",2,"2 huevos"],["harina",200,"200 g de harina integral"],["avena",50,"50 g de avena"],["endulzante",60,"60 g de endulzante apto horno"],["aceite",80,"80 ml de aceite neutro"],["leche",120,"120 ml de leche"],["polvo",10,"2 cucharaditas de polvo de hornear (10 g)"],["canela",4,"1 cucharadita de canela (4 g)"]],
+  pasos:["Precalienta el horno a 180 °C y pon pirotines (capacillos) en una placa para muffins.","Bate los huevos con el endulzante, el aceite y la leche.","Suma la harina, la avena, el polvo de hornear y la canela.","Agrega la manzana rallada y mezcla apenas.","Llena los pirotines hasta 3/4 y hornea 20 a 25 minutos.","Deja enfriar sobre una rejilla."],
+  tip:"La caja de 6 es ideal para regalar: ponle un precio de caja un poco menor que 6 sueltos."},
+ {id:"brownie",n:"Brownie de cacao y banana",d:"El chocolate sin culpa siempre gana",horno:"horno",dif:1,costo:"bajo",grupo:"horneado",individual:true,uso:["trabajo","familia","escuela"],base:2,rinde:12,ud:["cuadrado","cuadrados"],tiempo:"35 min",
+  ings:[["banana",3,"3 bananas bien maduras"],["huevo",2,"2 huevos"],["avena",100,"100 g de avena procesada"],["cacao",40,"40 g de cacao amargo"],["endulzante",40,"40 g de endulzante apto horno"],["aceite",50,"50 ml de aceite neutro"],["polvo",4,"1 cucharadita rasa de polvo de hornear (4 g)"],["vainilla",5,"1 cucharadita de esencia de vainilla (5 ml)"]],
+  pasos:["Precalienta el horno a 180 °C y forra un molde cuadrado de 20 cm con papel.","Pisa las bananas y mezcla con los huevos, el aceite y la vainilla.","Suma la avena, el cacao, el endulzante y el polvo de hornear.","Vuelca en el molde y alisa la superficie.","Hornea 20 a 25 minutos: el centro debe quedar apenas húmedo.","Deja enfriar por completo y corta en 12 cuadrados."],
+  tip:"Córtalo en frío con un cuchillo caliente: los bordes prolijos venden más en la foto."},
+ {id:"galletas",n:"Galletas de avena y coco",d:"Duran varios días y se venden en bolsita",horno:"horno",dif:1,costo:"bajo",grupo:"galleta",individual:false,uso:["escuela","regalo","vecinas"],base:1,rinde:24,ud:["galleta","galletas"],tiempo:"30 min",
+  ings:[["avena",200,"200 g de avena"],["coco",60,"60 g de coco rallado"],["banana",2,"2 bananas maduras"],["huevo",1,"1 huevo"],["aceite",40,"40 ml de aceite neutro"],["endulzante",40,"40 g de endulzante apto horno"],["canela",2,"1 pizca de canela (2 g)"]],
+  pasos:["Precalienta el horno a 180 °C y forra una placa con papel.","Pisa las bananas y mezcla con el huevo, el aceite y el endulzante.","Suma la avena, el coco y la canela hasta formar una masa húmeda.","Forma bolitas, aplánalas sobre la placa y deja espacio entre ellas.","Hornea 12 a 15 minutos, hasta que los bordes estén dorados.","Deja enfriar en la placa: se endurecen al enfriarse."],
+  tip:"Bolsitas de 6 galletas: un precio fácil de pagar y una compra que se repite."},
+ {id:"alfajores",n:"Alfajorcitos de avena",d:"Galletitas rellenas de dulce de leche",horno:"horno",dif:2,costo:"medio",grupo:"galleta",individual:true,uso:["regalo","trabajo","familia"],base:1,rinde:15,ud:["alfajorcito","alfajorcitos"],tiempo:"60 min",
+  ings:[["avena",150,"150 g de avena procesada"],["harina",100,"100 g de harina integral"],["manteca",80,"80 g de manteca (mantequilla) blanda"],["huevo",1,"1 huevo"],["endulzante",50,"50 g de endulzante apto horno"],["polvo",5,"1 cucharadita de polvo de hornear (5 g)"],["vainilla",5,"1 cucharadita de esencia de vainilla (5 ml)"],["dulce",250,"250 g de dulce de leche sin azúcar agregada (cajeta / arequipe / manjar)"],["coco",20,"20 g de coco rallado para los bordes"]],
+  pasos:["Mezcla la manteca con el endulzante, el huevo y la vainilla.","Suma la avena, la harina y el polvo de hornear hasta formar una masa.","Envuelve la masa y llévala 30 minutos a la heladera.","Estira a 4 mm y corta círculos de 4 a 5 cm.","Hornea a 180 °C de 8 a 10 minutos: deben quedar claritas.","Ya fríos, une de a dos con dulce de leche y pasa el borde por coco."],
+  tip:"Envuélvelos de a uno: se ven más profesionales y duran más."},
+ {id:"barritas",n:"Barritas de granola caseras",d:"Para la merienda y la lonchera",horno:"horno",dif:1,costo:"medio",grupo:"galleta",individual:true,uso:["escuela","trabajo"],base:1,rinde:12,ud:["barrita","barritas"],tiempo:"35 min",
+  ings:[["avena",250,"250 g de avena"],["semillas",60,"60 g de semillas (girasol, chía o lino)"],["mani",60,"60 g de maní (cacahuate) picado"],["pastamani",100,"100 g de pasta de maní sin azúcar"],["banana",2,"2 bananas maduras"],["canela",2,"1 pizca de canela (2 g)"],["vainilla",5,"1 cucharadita de esencia de vainilla (5 ml)"]],
+  pasos:["Precalienta el horno a 170 °C y forra un molde de 20 × 30 cm.","Pisa las bananas y mezcla con la pasta de maní y la vainilla.","Suma la avena, las semillas, el maní y la canela.","Aprieta bien la mezcla en el molde con una cuchara.","Hornea 20 a 25 minutos, hasta que esté dorada.","Deja enfriar por completo antes de cortar en 12 barritas."],
+  tip:"Ofrece un «pack semanal» de 5 barritas: es una venta que se repite cada semana."},
+ {id:"crumble",n:"Crumble de manzana en vaso",d:"Manzana con canela y crocante de avena",horno:"sarten",dif:1,costo:"bajo",grupo:"vaso",individual:true,uso:["familia","trabajo","vecinas"],base:1,rinde:6,ud:["vaso","vasos"],tiempo:"30 min",
+  ings:[["manzana",4,"4 manzanas"],["canela",4,"1 cucharadita de canela (4 g)"],["endulzante",20,"20 g de endulzante"],["avena",120,"120 g de avena"],["manteca",50,"50 g de manteca (mantequilla)"],["harina",40,"40 g de harina integral"]],
+  pasos:["Pela las manzanas y córtalas en cubos chicos.","Cocínalas en una sartén con la canela, el endulzante y un chorrito de agua, de 8 a 10 minutos.","En otra sartén, tuesta la avena con la harina y la manteca hasta que esté dorada y crocante.","Deja enfriar el crocante sobre un plato.","Arma los vasos: manzana abajo y crocante arriba.","Tapa y guarda en la heladera."],
+  nota:"El crocante se ablanda al día siguiente: arma los vasos el mismo día de la entrega o lleva el crocante aparte.",
+  tip:"Ofrécelo tibio en invierno y frío en verano: el mismo postre sirve todo el año."},
+ {id:"bombones",n:"Bombones de avena, cacao y maní",d:"Sin horno, listos en 20 minutos",horno:"sin",dif:1,costo:"medio",grupo:"bocado",individual:false,uso:["regalo","familia"],base:2,rinde:20,ud:["bombón","bombones"],tiempo:"20 min + 1 h de frío",
+  ings:[["avena",150,"150 g de avena"],["cacao",30,"30 g de cacao amargo"],["pastamani",120,"120 g de pasta de maní sin azúcar"],["banana",1,"1 banana madura"],["coco",30,"30 g de coco rallado para rebozar"],["vainilla",5,"1 cucharadita de esencia de vainilla (5 ml)"]],
+  pasos:["Pisa la banana y mezcla con la pasta de maní y la vainilla.","Suma la avena y el cacao hasta formar una masa que se pueda moldear.","Si queda blanda, agrega avena; si queda seca, una cucharada de agua.","Forma 20 bolitas del mismo tamaño.","Reboza la mitad en coco y la otra mitad en cacao.","Lleva 1 hora a la heladera antes de envasar."],
+  tip:"Las cajitas de 6 u 8 bombones son el regalo perfecto para fechas especiales."},
+ {id:"cheesecake",n:"Cheesecake fit en vaso",d:"Parece caro y se puede cobrar más",horno:"sin",dif:2,costo:"medio",grupo:"vaso",individual:true,uso:["trabajo","regalo","familia"],base:2,rinde:6,ud:["vaso","vasos"],tiempo:"30 min + 4 h de frío",
+  ings:[["galletas",120,"120 g de galletitas de avena sin azúcar agregada"],["manteca",40,"40 g de manteca (mantequilla) derretida"],["queso",290,"290 g de queso crema"],["yogur",200,"200 g de yogur natural sin azúcar"],["endulzante",40,"40 g de endulzante"],["gelatina",7,"1 sobre de gelatina sin sabor (7 g)"],["limon",1,"1 limón (el jugo)"],["frutos",200,"200 g de frutillas o frutos rojos"]],
+  pasos:["Tritura las galletitas, mezcla con la manteca derretida y reparte en el fondo de 6 vasos.","Hidrata la gelatina en 3 cucharadas de agua fría y luego disuélvela a baño María o 10 segundos en el microondas.","Bate el queso crema con el yogur, el endulzante y el jugo de limón.","Suma la gelatina disuelta y mezcla bien.","Reparte la crema en los vasos y lleva 4 horas a la heladera.","Cocina los frutos rojos 5 minutos con 2 cucharadas de agua, deja enfriar y cubre los vasos."],
+  tip:"Usa vasos transparentes con tapa: las capas se ven y eso vende solo."},
+ {id:"tiramisu",n:"Tiramisú fit en vaso",d:"Dura 2 a 3 días en la heladera",horno:"horno",dif:2,costo:"medio",grupo:"vaso",individual:true,uso:["trabajo","familia"],base:1,rinde:6,ud:["vaso","vasos"],tiempo:"50 min + 3 h de frío",
+  ings:[["huevo",3,"3 huevos (para las vainillas)"],["avena",90,"90 g de avena procesada"],["endulzante",70,"70 g de endulzante (40 g para las vainillas y 30 g para la crema)"],["polvo",3,"1/2 cucharadita de polvo de hornear (3 g)"],["queso",290,"290 g de queso crema"],["yogur",200,"200 g de yogur natural sin azúcar"],["vainilla",5,"1 cucharadita de esencia de vainilla (5 ml)"],["cafe",10,"2 cucharadas de café instantáneo (10 g) en 200 ml de agua"],["cacao",10,"10 g de cacao amargo para espolvorear"]],
+  pasos:["Vainillas: bate los huevos con 40 g de endulzante hasta que estén espumosos.","Suma la avena y el polvo de hornear con movimientos suaves.","Forma tiras sobre una placa con papel y hornea a 180 °C de 10 a 12 minutos.","Crema: bate el queso crema con el yogur, 30 g de endulzante y la vainilla.","Prepara el café y deja que se enfríe.","Arma los vasos: vainilla mojada en café, crema, y repite.","Espolvorea cacao y lleva 3 horas a la heladera."],
+  nota:"Contiene café: indícalo en la etiqueta y al ofrecerlo.",
+  tip:"Es un clásico muy deseado: preséntalo con cuchara y ponle un precio «de restaurante»."},
+ {id:"conitos",n:"Conitos de dulce de leche fit",d:"Base de galletita, copo de dulce de leche y baño de chocolate",horno:"horno",dif:2,costo:"medio",grupo:"bocado",individual:true,uso:["regalo","familia"],base:1,rinde:15,ud:["conito","conitos"],tiempo:"60 min + frío",
+  ings:[["avena",120,"120 g de avena procesada"],["harina",60,"60 g de harina integral"],["manteca",50,"50 g de manteca (mantequilla)"],["huevo",1,"1 huevo"],["endulzante",30,"30 g de endulzante apto horno"],["dulce",400,"400 g de dulce de leche repostero sin azúcar agregada (cajeta / arequipe / manjar)"],["choco",200,"200 g de chocolate sin azúcar"],["aceite",10,"2 cucharaditas de aceite (10 ml)"]],
+  pasos:["Mezcla la manteca, el endulzante y el huevo; suma la avena y la harina.","Estira a 4 mm y corta 15 círculos de 5 cm.","Hornea a 180 °C de 8 a 10 minutos y deja enfriar.","Pon el dulce de leche en una manga y forma un copo alto sobre cada galletita.","Lleva 1 hora al freezer para que el copo se endurezca.","Derrite el chocolate con el aceite y baña cada conito.","Guarda en la heladera."],
+  nota:"Usa chocolate sin azúcar para poder decir «sin azúcar agregada». En verano, entrégalos fríos.",
+  tip:"Son muy vistosos: en la foto muestra uno cortado para que se vea el interior."},
+ {id:"trufas",n:"Trufas de coco y limón",d:"Para cajas de regalo y fechas especiales",horno:"sin",dif:1,costo:"medio",grupo:"bocado",individual:false,uso:["regalo"],base:1,rinde:20,ud:["trufa","trufas"],tiempo:"20 min + frío",
+  ings:[["coco",230,"230 g de coco rallado (200 g + 30 g para rebozar)"],["queso",150,"150 g de queso crema"],["endulzante",40,"40 g de endulzante"],["limon",2,"2 limones (ralladura y jugo)"]],
+  pasos:["Mezcla el queso crema con el endulzante, la ralladura y el jugo de los limones.","Suma 200 g de coco hasta formar una pasta firme.","Lleva 30 minutos a la heladera.","Forma 20 bolitas.","Rebózalas en el coco restante.","Guarda en la heladera en un recipiente cerrado."],
+  tip:"En pirotines dorados dentro de una caja parecen de confitería."},
+ {id:"chocotorta",n:"Chocotorta fit en vaso",d:"Capas de galletas de chocolate y crema",horno:"sin",dif:1,costo:"medio",grupo:"vaso",individual:true,uso:["familia","trabajo","regalo"],base:2,rinde:6,ud:["vaso","vasos"],tiempo:"25 min + 3 h de frío",
+  ings:[["galletas",200,"200 g de galletitas de avena sin azúcar agregada"],["cacao",20,"20 g de cacao amargo (10 g para la leche y 10 g para decorar)"],["leche",200,"200 ml de leche"],["queso",290,"290 g de queso crema"],["dulce",200,"200 g de dulce de leche sin azúcar agregada (cajeta / arequipe / manjar)"]],
+  pasos:["Mezcla la leche con 10 g de cacao.","Bate el queso crema con el dulce de leche hasta que quede liso.","Moja apenas cada galletita en la leche chocolatada.","Arma capas en los vasos: galletitas, crema, y repite.","Termina con crema y espolvorea cacao.","Lleva 3 horas a la heladera."],
+  tip:"Es un clásico argentino: fuera de Argentina, preséntalo como «postre de capas de chocolate y crema»."},
+ {id:"turron",n:"Turrón de maní casero",d:"Estilo turrón arenoso, dura varios días",horno:"sin",dif:1,costo:"bajo",grupo:"bocado",individual:false,uso:["regalo","escuela","vecinas"],base:1,rinde:16,ud:["barrita","barritas"],tiempo:"20 min + 2 h de frío",
+  ings:[["mani",300,"300 g de maní (cacahuate) tostado sin sal"],["endulzante",50,"50 g de endulzante"],["coco",30,"30 g de coco rallado"],["vainilla",5,"1 cucharadita de esencia de vainilla (5 ml)"]],
+  pasos:["Procesa el maní hasta que quede como arena húmeda (sin llegar a pasta).","Suma el endulzante, el coco y la vainilla, y procesa unos segundos más.","Forra un molde chico con papel.","Aprieta bien la mezcla hasta que quede compacta y pareja.","Lleva 2 horas a la heladera o 1 hora al freezer.","Corta en 16 barritas y envuelve de a una."],
+  tip:"Envuélvelas de a una con tu etiqueta: se venden solas como «golosina fit»."}
+];
+const R = Object.fromEntries(RECIPES.map(r=>[r.id,r]));
+const NEEDS_FRIDGE = ["crumble","bombones","cheesecake","tiramisu","conitos","trufas","chocotorta","turron"];
+
+/* ================== DATOS: PLAN DE 14 DÍAS ================== */
+const STAGES = [
+  {n:1,t:"Elige y prueba",days:[1,2,3]},
+  {n:2,t:"Ponle precio",days:[4,5,6]},
+  {n:3,t:"Prepárate",days:[7,8,9]},
+  {n:4,t:"Ofrece",days:[10,11,12]},
+  {n:5,t:"Primera tanda",days:[13,14]}
+];
+const DAYS = {
+ 1:{t:"Conoce tus 3 postres",tx:"Abre las fichas de tus 3 postres. Fíjate qué ingredientes ya tienes y anota los que te faltan. Elige cuál vas a preparar primero: el que te resulte más fácil.",go:"postres",goTx:"Ver mis postres",an:"Empezar es la parte más valiente. Ya la hiciste."},
+ 2:{t:"Prepara tu primer postre",tx:"Hazlo siguiendo la ficha al pie de la letra. Pruébalo y anota abajo cómo salió: sabor, textura y cuánto tardaste.",notes:true,go:"postres",goTx:"Abrir mis recetas",an:"No tiene que salir perfecto: tiene que salir."},
+ 3:{t:"Prueba y pide opiniones",tx:"Prepara otro de tus postres (o repite el primero para ajustarlo). Dale a probar a 2 o 3 personas y pregúntales: ¿lo comprarías? ¿Cuánto pagarías? Anota las respuestas.",notes:true,an:"Cada opinión que recibes vale oro para vender mejor."},
+ 4:{t:"Ponle precio a tu primer postre",tx:"Hoy son 10 minutos. Busca los tickets o mira la app del súper: cuánto pagaste cada ingrediente y de qué tamaño era el paquete. Cárgalo en Precios y la app hace las cuentas.",go:"precios",goTx:"Ir a Precios",an:"Quien sabe sus números no regala su trabajo."},
+ 5:{t:"Completa los precios de tus 3 postres",tx:"Carga lo que falte y suma el costo del empaque por unidad (vasito, bolsita o cajita). Sin el empaque, pierdes plata sin darte cuenta.",go:"precios",goTx:"Ir a Precios",an:"Tu tiempo y tu esfuerzo también valen. Cóbralos."},
+ 6:{t:"Tu número de ventas",tx:"Revisa el precio sugerido de cada postre y ajústalo si hace falta. En Hoy vas a ver cuántas unidades por semana necesitas para tu meta, ahora con tus números reales.",go:"precios",goTx:"Revisar mis precios",an:"Ahora sabes cuánto ganas por cada venta. Eso es poder."},
+ 7:{t:"Ponle nombre a tu emprendimiento",tx:"Que sea corto, fácil de decir y que suene rico. Una fórmula simple: tu nombre + algo dulce («Las delicias de Caro») o una palabra que te represente + «fit». Escríbelo abajo: lo usamos en tu carta y tus etiquetas.",brand:true,an:"Un buen nombre hace que te recuerden."},
+ 8:{t:"Fotos que venden con tu celular",tx:"Saca 5 fotos de cada postre y quédate con la mejor:",list:["Luz de ventana de costado, nunca flash.","Fondo liso: mesa de madera o mantel claro.","Una foto desde arriba y otra en ángulo, a media altura.","Muestra uno cortado para que se vea el interior.","Limpia el borde del plato o del vaso antes de disparar."],an:"La gente compra primero con los ojos."},
+ 9:{t:"Tu etiqueta y tu presentación",tx:"Imprime tus etiquetas (están en Bonos) y elige cómo vas a entregar: vasito con tapa, bolsita o cajita. Prolijo y simple es suficiente.",go:"bonos:etiquetas",goTx:"Ver mis etiquetas",an:"Lo prolijo transmite confianza."},
+ 10:{t:"Arma tu carta de precios",tx:"Crea tu carta con tus postres, precios y contacto. Descárgala: mañana la vas a publicar.",go:"carta",goTx:"Crear mi carta",an:"Tu carta habla por ti cuando no estás."},
+ 11:{t:"Publica tu primera oferta",tx:"Sube tu carta al estado de WhatsApp y a tus historias, con el mensaje «Estado del día» de Bonos. ¡Hoy cumples la promesa: tu primera oferta publicada!",go:"bonos:mensajes",goTx:"Ver mensajes listos",an:"Publicar da nervios. Hazlo igual."},
+ 12:{t:"Escríbeles a 10 personas",tx:"Elige 10 personas (familia, amigas, compañeras) y mándales el mensaje de presentación, una por una y con su nombre. Lo personal vende más que lo masivo.",go:"bonos:mensajes",goTx:"Ver mensajes listos",an:"Cada «no» te acerca a un «sí»."},
+ 13:{t:"Toma pedidos y arma tu lista de compras",tx:"Carga cada pedido en Ventas: la app te arma la lista de compras exacta para tu primera tanda. Si el pedido es grande, pide una seña.",go:"ventas",goTx:"Ir a Ventas",an:"Organizarte hoy te ahorra plata mañana."},
+ 14:{t:"Entrega y registra tu primera venta",tx:"Entrega con tu etiqueta y una sonrisa. Marca el pedido como entregado y pide una opinión o una foto: es tu mejor publicidad. Al completar los 14 días, desbloqueas tu insignia.",go:"ventas",goTx:"Ir a Ventas",an:"Tu primera venta es el comienzo de algo tuyo."}
+};
+
+/* ================== DATOS: SOS ================== */
+const SOS = [
+ {id:"nadie",t:"Nadie me responde",r:"Es normal: los mensajes se pierden entre muchos otros. No es un «no».",a:["Espera 48 horas y vuelve a escribir con una foto del postre.","Termina con una pregunta fácil de responder: «¿Te guardo uno para el viernes?».","Publica tu estado entre las 17 y las 19 h, a la hora de la merienda."],m:"¡Hola! Esta semana preparo [postre] sin azúcar agregada 😊 ¿Te guardo uno para el viernes?"},
+ {id:"caro",t:"Me dicen que está caro",r:"No bajes el precio: ofrece una opción más chica. Así cuidas tu ganancia y la persona igual te compra.",a:["Arma una porción individual o una bolsita más chica.","Explica en una frase por qué vale: sin azúcar agregada y hecho en el día."],m:"¡Gracias por preguntar! 😊 Es sin azúcar agregada y lo hago en el día. Si quieres probarlo, tengo la porción individual a [precio]."},
+ {id:"mal",t:"Me salió mal",r:"Le pasa a todas, incluso a las profesionales. Es parte de aprender.",a:["Revisa la temperatura real de tu horno: muchos calientan de más o de menos.","Pesa los ingredientes en gramos: las tazas engañan.","Usa bananas bien maduras (con manchitas).","No lo vendas: úsalo para practicar fotos o regálalo. Repite mañana con media receta."]},
+ {id:"tiempo",t:"No tengo tiempo hoy",r:"Tranquila: tienes 1 comodín por semana y se aplica solo. Si hoy no entras, tu racha no se corta.",a:["Si tienes 2 minutos, lee la tarea de mañana y deja todo listo.","Los días son libres: puedes adelantar el fin de semana."]}
+];
+
+/* ================== DATOS: BONOS ================== */
+const MENSAJES = [
+ {t:"Presentación para conocidas",m:"¡Hola, [nombre]! 😊 Te cuento que empecé a hacer postres saludables sin azúcar agregada. Esta semana tengo [postre] a [precio]. ¿Te gustaría probar? Te lo llevo o lo retiras."},
+ {t:"Estado del día",m:"Hoy salió [postre] 🤤 Sin azúcar agregada y hecho hoy. Quedan pocas unidades: escríbeme para reservar."},
+ {t:"Cuando te preguntan «¿cuánto sale?»",m:"¡Gracias por escribir! [postre] sale [precio]. Lo preparo en el día, con ingredientes simples y sin azúcar agregada. ¿Para qué día lo quieres?"},
+ {t:"Cuando te dicen «está caro»",m:"¡Gracias por preguntar! 😊 Es sin azúcar agregada y lo hago en el día. Si quieres probarlo, tengo la porción individual a [precio]."},
+ {t:"Confirmar un pedido con seña",m:"¡Listo! Te confirmo: [cantidad] de [postre] para el [día]. Total: [total]. Para reservarlo te pido una seña de la mitad. ¡Gracias por confiar! 💚"},
+ {t:"Recordatorio de entrega",m:"¡Hola! Te recuerdo que mañana te entrego tu pedido de [postre]. ¿Te queda bien a las [hora]?"},
+ {t:"Pedir una opinión",m:"¿Qué tal estuvo el [postre]? Tu opinión me ayuda muchísimo 🙏 Si te gustó, ¿me mandas una foto o un audio cortito?"},
+ {t:"Caja de regalo para una fecha",m:"Se viene [fecha] 🎁 Armé cajitas de regalo con [postre], sin azúcar agregada. Ideales para regalar. Tomo pedidos hasta el [día]."}
+];
+const FECHAS = [
+ ["Día de los Enamorados","14 de febrero","Trufas, bombones y conitos en cajita"],
+ ["Vuelta a clases","Feb–mar (sur) · ago–sep (norte)","Barritas, galletas y muffins para la lonchera"],
+ ["Pascua","Marzo o abril","Bombones de cacao y cajas surtidas"],
+ ["Día de la Madre","Mayo en casi toda Latinoamérica (octubre en Argentina)","Cajas de regalo, cheesecake y tiramisú en vaso"],
+ ["Día del Padre","Junio en casi toda Latinoamérica","Brownies, turrón de maní y alfajorcitos"],
+ ["Día del Niño","Varía por país (abril a agosto)","Galletas y muffins en bolsitas"],
+ ["Día del Maestro","Varía por país","Cajitas de bombones o trufas"],
+ ["Primavera y Día del Estudiante","Septiembre (sur)","Vasitos y bombones para compartir"],
+ ["Halloween y Día de Muertos","31 de oct – 2 de nov","Brownies y bombones decorados"],
+ ["Navidad y Año Nuevo","Diciembre","Cajas de regalo, turrón, trufas y alfajorcitos"],
+ ["Todo el año","Cumpleaños y reuniones","Budines, chocotorta y cheesecake en vaso"]
+];
+const MENU7 = [
+ ["Lunes","Avena cocida con banana y canela","Guiso de lentejas con zanahoria y arroz","Tortilla de verduras con ensalada"],
+ ["Martes","Yogur con avena y fruta","Arroz con pollo y verduras","Sopa de verduras con huevo duro"],
+ ["Miércoles","Tostadas integrales con huevo","Garbanzos salteados con verduras","Salteado con lo que sobró del arroz con pollo"],
+ ["Jueves","Licuado de banana y avena","Fideos con salsa de tomate casera y lentejas","Omelette de espinaca y tomate"],
+ ["Viernes","Avena con manzana y canela","Hamburguesas caseras de lentejas con ensalada","Pizza casera integral de verduras"],
+ ["Sábado","Panqueques de banana y avena","Pollo al horno con papas y calabaza (zapallo)","Ensalada completa con huevo y garbanzos"],
+ ["Domingo","Fruta de estación con yogur","Guiso de arroz con verduras","Sopa crema de calabaza con tostadas"]
+];
+
+const MONEDAS = [
+ {c:"ARS",s:"$",l:"Pesos argentinos",d:0},{c:"MXN",s:"$",l:"Pesos mexicanos",d:0,m:1},{c:"COP",s:"$",l:"Pesos colombianos",d:0},
+ {c:"CLP",s:"$",l:"Pesos chilenos",d:0},{c:"PEN",s:"S/",l:"Soles",d:2,m:1},{c:"UYU",s:"$",l:"Pesos uruguayos",d:0},
+ {c:"BOB",s:"Bs",l:"Bolivianos",d:2},{c:"PYG",s:"₲",l:"Guaraníes",d:0},{c:"GTQ",s:"Q",l:"Quetzales",d:2,m:1},
+ {c:"DOP",s:"RD$",l:"Pesos dominicanos",d:0,m:1},{c:"CRC",s:"₡",l:"Colones",d:0},{c:"HNL",s:"L",l:"Lempiras",d:2,m:1},
+ {c:"VES",s:"Bs",l:"Bolívares",d:2},{c:"USD",s:"US$",l:"Dólares",d:2,m:1}
+];
+
+/* ================== ÍCONOS (SVG en línea) ================== */
+const ICONS = {
+ home:'<path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/>',
+ map:'<path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2z"/><path d="M9 4v14M15 6v14"/>',
+ cake:'<path d="M4 11h16l-2 9H6z"/><path d="M5 11a7 7 0 0 1 14 0"/><path d="M12 4V2"/>',
+ tag:'<path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.5"/>',
+ receipt:'<path d="M5 3h14v18l-3-2-2 2-2-2-2 2-2-2-3 2z"/><path d="M9 8h6M9 12h6"/>',
+ gift:'<rect x="3" y="8" width="18" height="4" rx="1"/><path d="M5 12v9h14v-9M12 8v13"/><path d="M12 8S10 3 7.5 4.5 9 8 12 8zM12 8s2-5 4.5-3.5S15 8 12 8z"/>',
+ gear:'<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/>',
+ flame:'<path d="M12 22c4 0 7-3 7-7 0-4-3-6-4-9-1 2-2 3-3 3 0-3-1-5-3-7 0 4-4 7-4 13 0 4 3 7 7 7z"/>',
+ check:'<path d="M20 6 9 17l-5-5"/>',
+ back:'<path d="M15 18l-6-6 6-6"/>',
+ close:'<path d="M18 6 6 18M6 6l12 12"/>',
+ copy:'<rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/>',
+ download:'<path d="M12 3v12M7 10l5 5 5-5M5 21h14"/>',
+ share:'<circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"/>',
+ life:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="m5.6 5.6 3.6 3.6M14.8 14.8l3.6 3.6M18.4 5.6l-3.6 3.6M9.2 14.8l-3.6 3.6"/>',
+ clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+ users:'<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7M18 14a6 6 0 0 1 3.5 6"/>',
+ oven:'<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><rect x="7" y="12" width="10" height="6" rx="1"/>',
+ snow:'<path d="M12 2v20M4 6l16 12M20 6 4 18"/>',
+ pan:'<circle cx="10" cy="13" r="7"/><path d="M17 13h5"/>',
+ plus:'<path d="M12 5v14M5 12h14"/>',
+ trash:'<path d="M3 6h18M8 6V4h8v2M6 6l1 15h10l1-15"/>',
+ print:'<path d="M6 9V3h12v6"/><rect x="3" y="9" width="18" height="8" rx="2"/><path d="M6 14h12v7H6z"/>',
+ star:'<path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/>',
+ cart:'<circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.5 12h11.5l2-8H6"/>',
+ glass:'<path d="M6 3h12l-1.5 17a1 1 0 0 1-1 1h-7a1 1 0 0 1-1-1z"/><path d="M6.5 9h11"/>',
+ cookie:'<circle cx="12" cy="12" r="9"/><path d="M8 9h.01M15 8h.01M10 14h.01M15 15h.01M12 11h.01"/>',
+ bonbon:'<circle cx="12" cy="12" r="5"/><path d="M7 12 3 9v6zM17 12l4-3v6z"/>',
+ loaf:'<path d="M4 10a8 4 0 0 1 16 0v9a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z"/><path d="M8 8v3M12 7v3M16 8v3"/>',
+ image:'<rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/>',
+ msg:'<path d="M21 12a8 8 0 0 1-11.8 7L3 21l2-6A8 8 0 1 1 21 12z"/>',
+ cal:'<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>',
+ leaf:'<path d="M5 19c0-9 6-15 15-15 0 9-6 15-15 15z"/><path d="M5 19 13 11"/>',
+ trophy:'<path d="M8 21h8M12 17v4M7 4h10v4a5 5 0 0 1-10 0z"/><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/>',
+ upload:'<path d="M12 21V9M7 14l5-5 5 5M5 3h14"/>'
+};
+function ic(name,size=22,extra=""){return `<svg class="ic" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ${extra}>${ICONS[name]||""}</svg>`;}
+const GRUPO_IC = {horneado:"loaf",galleta:"cookie",vaso:"glass",bocado:"bonbon"};
+const HORNO_TX = {horno:["oven","Con horno"],sin:["snow","Sin horno"],sarten:["pan","En sartén"]};
+
+/* ================== ESTADO Y GUARDADO ================== */
+const KEY = "postresFitQueVenden_v1";
+function defaults(){return {v:1,profile:{},plan:null,days:{},notes:{},activity:[],ings:{},cfg:{},orders:[],comprado:{},tab:"hoy",bonoTab:"mensajes",precioId:null,premioVisto:false};}
+function load(){try{const raw=localStorage.getItem(KEY);return Object.assign(defaults(),raw?JSON.parse(raw):{});}catch(e){return defaults();}}
+let S = load();
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){toast("No se pudo guardar en este navegador");}}
+
+/* ================== UTILIDADES ================== */
+const $ = (s,el=document)=>el.querySelector(s);
+const $$ = (s,el=document)=>[...el.querySelectorAll(s)];
+const esc = s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const pad = n=>String(n).padStart(2,"0");
+const ds = d=>`${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
+const today = ()=>ds(new Date());
+const parseD = s=>{const [y,m,d]=s.split("-").map(Number);return new Date(y,m-1,d);};
+const addDays = (d,n)=>{const x=new Date(d);x.setDate(x.getDate()+n);return x;};
+function monday(d){const x=new Date(d.getFullYear(),d.getMonth(),d.getDate());const w=(x.getDay()+6)%7;x.setDate(x.getDate()-w);return x;}
+const weekKey = d=>ds(monday(d));
+const fechaLarga = d=>d.toLocaleDateString("es",{day:"numeric",month:"long"});
+const mesNombre = d=>d.toLocaleDateString("es",{month:"long"});
+function num(v){if(v===null||v===undefined)return NaN;const s=String(v).trim().replace(/\s/g,"");if(!s)return NaN;
+  // Acepta 1.500,50 / 1,500.50 / 1500,5 / 1500.5
+  let t=s;if(t.includes(",")&&t.includes(".")){t=t.lastIndexOf(",")>t.lastIndexOf(".")?t.replace(/\./g,"").replace(",","."):t.replace(/,/g,"");}
+  else if(/^\d{1,3}([.,]\d{3})+$/.test(t)){t=t.replace(/[.,]/g,"");}
+  else if(t.includes(",")){t=t.replace(",",".");}
+  return parseFloat(t);}
+function cur(){return MONEDAS.find(m=>m.c===S.profile.moneda)||MONEDAS[0];}
+function fmtNum(n,dec){const c=cur();const neg=n<0;let v=Math.abs(n);const f=Math.pow(10,dec);v=Math.round(v*f)/f;
+  let [ip,dp]=v.toFixed(dec).split(".");if(dp&&/^0+$/.test(dp))dp="";
+  const ts=c.m?",":".",dsep=c.m?".":",";ip=ip.replace(/\B(?=(\d{3})+(?!\d))/g,ts);return (neg?"-":"")+ip+(dp?dsep+dp:"");}
+function fmt(n,forceDec){if(n===null||n===undefined||isNaN(n))return "—";const c=cur();const dec=forceDec??c.d;return c.s+" "+fmtNum(Number(n),dec);}
+function fmtCost(n){const c=cur();return fmt(n,Math.max(c.d,n<10?2:0));}
+function niceRound(x){const c=cur();if(c.d>0){return x<20?Math.ceil(x*2)/2:Math.ceil(x);}
+  const step=x<100?5:x<1000?10:x<10000?50:100;return Math.ceil(x/step)*step;}
+function qtyTx(q,u){if(u==="u"){const n=Math.ceil(q);return n+(n===1?" unidad":" unidades");}
+  if(q>=1000){const v=String(Math.round(q/10)/100).replace(".",",");return v+(u==="g"?" kg":" L");}
+  return Math.round(q)+" "+u;}
+function ingName(k){const i=INGS[k];return i.n+(i.alt?` (${i.alt})`:"");}
+function toast(msg){const t=$("#toast");t.textContent=msg;t.classList.add("show");clearTimeout(toast._t);toast._t=setTimeout(()=>t.classList.remove("show"),2300);}
+async function copyText(txt){try{await navigator.clipboard.writeText(txt);}catch(e){const ta=document.createElement("textarea");ta.value=txt;ta.style.position="fixed";ta.style.opacity="0";document.body.appendChild(ta);ta.select();try{document.execCommand("copy");}catch(_){}ta.remove();}toast("¡Copiado!");}
+function uid(){return Date.now().toString(36)+Math.random().toString(36).slice(2,7);}
+function photoHTML(id,cls=""){const r=R[id];const url=FOTOS[id];
+  return `<div class="ph g-${r.grupo} ${cls}">${ic(GRUPO_IC[r.grupo],44)}${url?`<img src="${esc(url)}" alt="${esc(r.n)}" loading="lazy" onerror="this.remove()">`:""}</div>`;}
+function fillIcons(root=document){$$("[data-ic]",root).forEach(el=>{if(!el.dataset.icDone){el.insertAdjacentHTML("afterbegin",ic(el.dataset.ic,20));el.dataset.icDone=1;}});}
+
+/* ================== CÁLCULOS ================== */
+function ingUnitCost(k){const g=S.ings[k];if(!g)return null;const p=num(g.price),pk=num(g.pack);if(!(p>=0)||!(pk>0))return null;return p/pk;}
+function recipeCost(id){const r=R[id];let ing=0;const missing=[];
+  for(const [k,q] of r.ings){const uc=ingUnitCost(k);if(uc===null)missing.push(k);else ing+=uc*q;}
+  const cfg=S.cfg[id]||{};const emp=num(cfg.empaque);const empaque=(emp>=0?emp:0)*r.rinde;
+  const gas=ing*0.10;const total=ing+gas+empaque;
+  return {ing,gas,empaque,total,unit:total/r.rinde,missing,complete:missing.length===0};}
+function suggested(id){const c=recipeCost(id);return c.complete&&c.unit>0?niceRound(c.unit*2.5):null;}
+function getPrecio(id){const p=num((S.cfg[id]||{}).precio);if(p>0)return p;return suggested(id);}
+function getCostoUnit(id){const c=recipeCost(id);return c.complete?c.unit:null;}
+function orderGan(o){const cu=o.costUnit??getCostoUnit(o.recipe);return cu===null?null:(o.price-cu)*o.qty;}
+function sumPeriod(fromDate,toDate){let ventas=0,gan=0,sinCosto=0;
+  for(const o of S.orders){const d=parseD(o.date);if(d<fromDate||d>toDate)continue;ventas+=o.price*o.qty;const g=orderGan(o);if(g===null)sinCosto++;else gan+=g;}
+  return {ventas,gan,sinCosto};}
+function monthStats(){const n=new Date();const a=new Date(n.getFullYear(),n.getMonth(),1);const b=new Date(n.getFullYear(),n.getMonth()+1,0,23,59);return sumPeriod(a,b);}
+function weekStats(){const a=monday(new Date());const b=addDays(a,6);b.setHours(23,59);return sumPeriod(a,b);}
+function exactGanUnit(){const ids=S.plan?.postres||[];const g=[];for(const id of ids){const p=getPrecio(id),c=getCostoUnit(id);if(p!==null&&c!==null&&p-c>0)g.push(p-c);}return g.length?g.reduce((a,b)=>a+b,0)/g.length:null;}
+function unitsWeek(){const meta=num(S.profile.meta);if(!(meta>0))return null;const g=exactGanUnit();
+  if(g)return {n:Math.ceil(meta/(g*4.3)),exact:true};
+  const pr=num(S.profile.precioRef);if(!(pr>0))return null;return {n:Math.ceil(meta/(pr*0.6*4.3)),exact:false};}
+function firstGan(){const os=[...S.orders].sort((a,b)=>a.date.localeCompare(b.date)||a.created-b.created);for(const o of os){const g=orderGan(o);if(g!==null&&g>0)return g;}return null;}
+
+/* --- Racha con comodín semanal --- */
+function addActivity(){const t=today();if(!S.activity.includes(t)){S.activity.push(t);}save();}
+function streak(){const act=new Set(S.activity);if(!act.size)return {n:0,comodin:false};
+  const first=[...act].sort()[0];let d=new Date();const used=new Set();let n=0;
+  if(!act.has(ds(d)))d=addDays(d,-1);
+  for(let i=0;i<400;i++){const s=ds(d);if(s<first)break;
+    if(act.has(s))n++;else{const wk=weekKey(d);if(used.has(wk))break;used.add(wk);}
+    d=addDays(d,-1);}
+  return {n,comodin:used.has(weekKey(new Date()))};}
+function daysDone(){return Object.keys(S.days).filter(k=>S.days[k]?.done).length;}
+function nextDay(){for(let i=1;i<=14;i++)if(!S.days[i]?.done)return i;return null;}
+
+/* --- Elección de los 3 postres según el quiz --- */
+function pickPostres(a){
+  let list=RECIPES.slice();
+  if(a.horno==="no")list=list.filter(r=>r.horno!=="horno");
+  if(a.experiencia==="nada")list=list.filter(r=>r.dif===1);
+  const score=r=>{let s=r.base||0;
+    if(a.experiencia==="budines"&&["budin","muffins","brownie","alfajores"].includes(r.id))s+=3;
+    if(a.experiencia==="frios"&&(r.grupo==="vaso"||r.id==="bombones"))s+=3;
+    if(a.publico==="trabajo"&&r.individual)s+=2;
+    if(a.publico==="vecinas"&&r.uso.includes("vecinas"))s+=2;
+    if(a.publico==="familia"&&r.uso.includes("regalo"))s+=1;
+    if(a.publico==="escuela"&&r.uso.includes("escuela"))s+=1;
+    if(a.inversion==="minimo"&&r.costo==="bajo")s+=2;
+    if(r.dif===1)s+=1;return s;};
+  list.sort((x,y)=>score(y)-score(x));
+  const picked=[];
+  const can=r=>{if(picked.includes(r))return false;
+    if(picked.filter(p=>p.grupo===r.grupo).length>=2)return false;
+    if(a.horno==="aveces"&&r.horno==="horno"&&picked.some(p=>p.horno==="horno"))return false;return true;};
+  const req=a.publico==="familia"?"regalo":a.publico==="escuela"?"escuela":null;
+  if(req){const r=list.find(x=>x.uso.includes(req)&&can(x));if(r)picked.push(r);}
+  for(const r of list){if(picked.length>=3)break;if(can(r))picked.push(r);}
+  return picked.map(r=>r.id);
+}
+
+/* ================== ONBOARDING ================== */
+const QUIZ = [
+ {id:"nombre",type:"text",q:"¿Cómo te llamas?",h:"Así armamos un plan con tu nombre."},
+ {id:"tiempo",q:"¿Cuánto tiempo tienes por semana para tu emprendimiento?",h:"Sé realista: el plan se adapta.",opts:[["3-5","3 a 5 horas"],["6-10","6 a 10 horas"],["10+","Más de 10 horas"]]},
+ {id:"horno",q:"¿Tienes horno?",h:"Hay postres riquísimos que no lo necesitan.",opts:[["si","Sí"],["no","No"],["aveces","A veces (prestado o compartido)"]]},
+ {id:"experiencia",q:"¿Qué te sale bien hoy?",h:"No importa si recién empiezas.",opts:[["nada","Todavía nada, estoy empezando"],["budines","Budines y tortas"],["frios","Postres fríos"]]},
+ {id:"publico",q:"¿A quién le venderías primero?",h:"Tu primer círculo es tu primera clientela.",opts:[["familia","Familia y amigas"],["escuela","Conocidas de la escuela o la facultad"],["vecinas","Vecinas"],["trabajo","Compañeras de trabajo"]]},
+ {id:"meta",type:"money",q:"¿Cuánto quieres ganar extra por mes?",h:"Elige tu moneda y escribe el monto. Es tu meta de ganancia (lo que te queda después de los costos)."},
+ {id:"inversion",q:"¿Cuánto puedes invertir para arrancar?",h:"Elegimos postres que se ajusten a tu bolsillo.",opts:[["minimo","Lo mínimo"],["mas","Un poco más"]]},
+ {id:"precioRef",type:"amount",q:"¿A cuánto se vende una porción de torta en tu zona?",h:"Un precio aproximado alcanza. Con esto estimamos cuántas unidades necesitas vender."}
+];
+let OB = {step:-1,ans:{moneda:"ARS"}};
+
+function renderOnb(){
+  $("#app").hidden=true;const box=$("#onb");box.hidden=false;
+  if(OB.step===-1){
+    box.innerHTML=`<div class="onb-box welcome">
+      <div class="welcome-badge">${ic("cake",44)}</div>
+      <p class="eyebrow">Tu plan de 14 días</p>
+      <h1 class="mt8">Postres Fit <span>que Venden</span></h1>
+      <p class="sub">Tu plan para ganar tu propia plata desde tu cocina.</p>
+      <ul class="promise">
+        <li><span class="dot">${ic("cake",18)}</span><span>Tus 3 postres saludables elegidos para ti</span></li>
+        <li><span class="dot">${ic("tag",18)}</span><span>Tus precios calculados, con ganancia real</span></li>
+        <li><span class="dot">${ic("msg",18)}</span><span>Tu primera oferta publicada en 14 días</span></li>
+      </ul>
+      <button class="btn btn-rasp btn-block" id="obStart">Armar mi plan ${ic("back",20,'style="transform:rotate(180deg)"')}</button>
+      <p class="muted small mt12" style="text-align:center">Toma 2 minutos · 8 preguntas</p>
+    </div>`;
+    $("#obStart").onclick=()=>{OB.step=0;renderOnb();};
+    return;
+  }
+  if(OB.step>=QUIZ.length){return renderLoading();}
+  const q=QUIZ[OB.step];const a=OB.ans;const pct=Math.round((OB.step)/QUIZ.length*100);
+  let body="";
+  if(q.opts){
+    body=q.opts.map(([v,t])=>`<button class="opt ${a[q.id]===v?"sel":""}" data-v="${v}" aria-pressed="${a[q.id]===v}"><span>${t}</span><span class="tick">${ic("check",16)}</span></button>`).join("");
+  }else if(q.type==="text"){
+    body=`<div class="field"><label class="lbl sr" for="qin">Tu nombre</label><input class="input" id="qin" autocomplete="given-name" maxlength="30" placeholder="Tu nombre" value="${esc(a.nombre||"")}"><div class="err-msg" id="qerr"></div></div>
+    <button class="btn btn-primary btn-block" id="qnext">Siguiente</button>`;
+  }else if(q.type==="money"){
+    body=`<div class="field"><label class="lbl" for="qcur">Tu moneda</label><select class="input" id="qcur">${MONEDAS.map(m=>`<option value="${m.c}" ${a.moneda===m.c?"selected":""}>${m.l} (${m.s})</option>`).join("")}</select></div>
+    <div class="field"><label class="lbl" for="qin">Monto por mes</label><div class="money"><span class="sym" id="qsym">${esc((MONEDAS.find(m=>m.c===a.moneda)||MONEDAS[0]).s)}</span><input class="input" id="qin" inputmode="decimal" placeholder="Ej.: 100000" value="${esc(a.meta||"")}"></div><div class="err-msg" id="qerr"></div></div>
+    <button class="btn btn-primary btn-block" id="qnext">Siguiente</button>`;
+  }else if(q.type==="amount"){
+    const s=(MONEDAS.find(m=>m.c===a.moneda)||MONEDAS[0]).s;
+    body=`<div class="field"><label class="lbl" for="qin">Precio de una porción</label><div class="money"><span class="sym">${esc(s)}</span><input class="input" id="qin" inputmode="decimal" placeholder="Precio aproximado" value="${esc(a.precioRef||"")}"></div><div class="err-msg" id="qerr"></div></div>
+    <button class="btn btn-rasp btn-block" id="qnext">Ver mi plan</button>`;
+  }
+  box.innerHTML=`<div class="onb-box">
+    <div class="qtop"><button class="icon-btn" id="qback" aria-label="Volver">${ic("back")}</button>
+      <div class="progress" role="progressbar" aria-valuenow="${pct}" aria-valuemin="0" aria-valuemax="100"><i style="width:${Math.max(6,pct)}%"></i></div>
+      <span class="qcount">${OB.step+1}/${QUIZ.length}</span></div>
+    <h2 class="qtitle">${q.q}</h2><p class="qhelp">${q.h}</p>
+    <div>${body}</div></div>`;
+  $("#qback").onclick=()=>{OB.step--;renderOnb();};
+  if(q.opts){$$(".opt",box).forEach(b=>b.onclick=()=>{a[q.id]=b.dataset.v;$$(".opt",box).forEach(x=>{x.classList.toggle("sel",x===b);x.setAttribute("aria-pressed",x===b);});setTimeout(()=>{OB.step++;renderOnb();},220);});}
+  const inp=$("#qin");
+  if(inp){setTimeout(()=>inp.focus(),50);
+    const next=()=>{const err=$("#qerr");inp.classList.remove("err");err.textContent="";
+      if(q.type==="text"){const v=inp.value.trim();if(!v){inp.classList.add("err");err.textContent="Escribe tu nombre para seguir.";return;}a.nombre=v;}
+      else{const v=num(inp.value);if(!(v>0)){inp.classList.add("err");err.textContent="Escribe un monto mayor que cero (solo números).";return;}
+        if(q.type==="money"){a.meta=v;a.moneda=$("#qcur").value;}else a.precioRef=v;}
+      OB.step++;renderOnb();};
+    $("#qnext").onclick=next;inp.onkeydown=e=>{if(e.key==="Enter")next();};
+    const qc=$("#qcur");if(qc)qc.onchange=()=>{a.moneda=qc.value;$("#qsym").textContent=(MONEDAS.find(m=>m.c===qc.value)||MONEDAS[0]).s;};
+  }
+}
+function renderLoading(){
+  const box=$("#onb");
+  box.innerHTML=`<div class="onb-box loading"><div class="spinner" aria-hidden="true"></div><h2 class="qtitle">Armando tu plan…</h2>
+    <ul class="load-steps"><li id="ls1">${ic("check",18)} Eligiendo tus 3 postres</li><li id="ls2">${ic("check",18)} Calculando tu meta</li><li id="ls3">${ic("check",18)} Preparando tus 14 días</li></ul></div>`;
+  setTimeout(()=>$("#ls1")?.classList.add("on"),700);
+  setTimeout(()=>$("#ls2")?.classList.add("on"),1600);
+  setTimeout(()=>$("#ls3")?.classList.add("on"),2400);
+  setTimeout(finishQuiz,3000);
+}
+function finishQuiz(){
+  const a=OB.ans;const keepBrand=S.profile.marca,keepContact=S.profile.contacto;
+  S.profile=Object.assign({},a,{marca:keepBrand||"",contacto:keepContact||"",done:true});
+  const start=today();
+  S.plan={postres:pickPostres(a),inicio:start,meta:ds(addDays(new Date(),14))};
+  if(!S.precioId)S.precioId=S.plan.postres[0];
+  save();renderReveal();
+}
+function renderReveal(){
+  const box=$("#onb");const p=S.profile;const u=unitsWeek();
+  const names=S.plan.postres.map(id=>R[id].n.toLowerCase());
+  const tiempoNote=(u&&u.n>200)?`<div class="note mt12">Revisa los montos en Ajustes: es una meta muy alta para el precio que indicaste.</div>`:(p.tiempo==="3-5"&&u&&u.n>20)?`<div class="note mt12">Tu meta es ambiciosa para 3 a 5 horas por semana: empieza por la mitad y súbela de a poco.</div>`:"";
+  box.innerHTML=`<div class="onb-box reveal">
+    <p class="eyebrow">Tu plan personalizado</p>
+    <h1 class="mt8">${esc(p.nombre)}, este es tu plan</h1>
+    <p class="muted mt8" style="font-weight:700">Vas a vender ${esc(names[0])}, ${esc(names[1])} y ${esc(names[2])}.</p>
+    <div class="mini-postres">${S.plan.postres.map(id=>`<div class="p">${photoHTML(id)}<span>${esc(R[id].n)}</span></div>`).join("")}</div>
+    <div class="card">
+      ${u?`<div class="reveal-units"><b>≈ ${u.n}</b><span style="font-weight:800">unidades por semana</span></div>
+      <p class="muted" style="font-weight:600">para llegar a tu meta de <b>${fmt(num(p.meta))}</b> de ganancia por mes. Es una estimación: el día 6 la cambiamos por tu número exacto.</p>`:""}
+      <div class="row mt12"><span class="pill rasp">${ic("cal",16)} Tu fecha para estar lista: ${fechaLarga(parseD(S.plan.meta))}</span></div>
+      ${tiempoNote}
+    </div>
+    <p class="muted small mt12">Es una meta, no una garantía: tu resultado depende de lo que hagas cada día.</p>
+    <button class="btn btn-rasp btn-block mt16" id="goDay1">Empezar día 1</button>
+  </div>`;
+  $("#goDay1").onclick=()=>{$("#onb").hidden=true;S.tab="hoy";save();startApp();setTimeout(()=>openDay(1),250);};
+}
+
+/* ================== APP: NAVEGACIÓN ================== */
+const NAV = [["hoy","Hoy","home"],["plan","Mi plan","map"],["postres","Postres","cake"],["precios","Precios","tag"],["ventas","Ventas","receipt"]];
+const TITLES = {hoy:"Hoy",plan:"Mi plan",postres:"Postres",precios:"Precios",ventas:"Ventas",bonos:"Bonos"};
+function startApp(){
+  $("#onb").hidden=true;$("#app").hidden=false;
+  $("#bottomNav").innerHTML=NAV.map(([k,t,i])=>`<button class="nav-btn" data-go="${k}">${ic(i,24)}<span>${t}</span></button>`).join("");
+  $("#sideNav").innerHTML=NAV.map(([k,t,i])=>`<button class="side-btn" data-go="${k}">${ic(i)}${t}</button>`).join("")+
+    `<div class="side-sep"></div><button class="side-btn" data-go="bonos">${ic("gift")}Bonos</button><button class="side-btn" data-act="ajustes">${ic("gear")}Ajustes</button>`;
+  fillIcons();render();
+}
+function go(tab,opts={}){S.tab=tab;if(opts.bono)S.bonoTab=opts.bono;if(opts.precio)S.precioId=opts.precio;save();render();window.scrollTo({top:0,behavior:"smooth"});$("#view").focus({preventScroll:true});}
+function render(){
+  $$("[data-go]").forEach(b=>b.classList.toggle("on",b.dataset.go===S.tab));
+  const v=$("#view");
+  const views={hoy:viewHoy,plan:viewPlan,postres:viewPostres,precios:viewPrecios,ventas:viewVentas,bonos:viewBonos};
+  v.innerHTML=(views[S.tab]||viewHoy)();
+  bindView(v);
+}
+
+/* ---------- Vista: Hoy ---------- */
+function viewHoy(){
+  const p=S.profile;const nd=nextDay();const st=streak();const ms=monthStats();const ws=weekStats();
+  const meta=num(p.meta);const falta=Math.max(0,meta-ms.gan);const pct=meta>0?Math.min(100,ms.gan/meta*100):0;
+  const u=unitsWeek();const done=daysDone();const t=today();const checked=S.activity.includes(t);
+  const dayCard=nd?`<div class="card hero">
+      <p class="eyebrow">Tu tarea de hoy · Etapa ${STAGES.find(s=>s.days.includes(nd)).n}: ${STAGES.find(s=>s.days.includes(nd)).t}</p>
+      <h2 class="day">Día ${nd}: ${DAYS[nd].t}</h2>
+      <p class="muted" style="font-weight:700">${ic("clock",16)} 10 minutos · ${done} de 14 días hechos</p>
+      <div class="bar sage"><i style="width:${done/14*100}%"></i></div>
+      <p class="small muted" style="font-weight:700">Camino a tu primera venta</p>
+      <button class="btn btn-primary btn-block mt16" data-day="${nd}">Ver la tarea de hoy</button></div>`
+    :`<div class="card hero"><p class="eyebrow">¡Plan completo!</p><h2 class="day">Completaste tus 14 días</h2>
+      <p class="muted" style="font-weight:700">Ahora sigue registrando tus pedidos para ver cómo crece tu ganancia.</p>
+      <div class="row wrap mt16"><button class="btn btn-rasp" data-act="premio">${ic("trophy")} Ver mi insignia</button><button class="btn btn-soft" data-go="ventas">Ir a Ventas</button></div></div>`;
+  return `<h1 class="page-title">Hola, <span>${esc(p.nombre)}</span></h1>
+  <p class="page-sub">${new Date().toLocaleDateString("es",{weekday:"long",day:"numeric",month:"long"})}</p>
+  <div class="hoy-grid">
+    <div class="stack">${dayCard}
+      <div class="card"><div class="row between"><div><p class="eyebrow">Meta de ${mesNombre(new Date())}</p>
+        <h3 class="mt8">${falta>0?`Te faltan ${fmt(falta)} para tu meta`:"¡Llegaste a tu meta del mes!"}</h3></div></div>
+        <div class="bar"><i style="width:${pct}%"></i></div>
+        <p class="small muted" style="font-weight:700">Ganancia del mes: ${fmt(ms.gan)} de ${fmt(meta)}</p>
+        ${ms.sinCosto?`<p class="small mt8" style="color:var(--warn);font-weight:700">${ms.sinCosto} pedido(s) sin costo cargado: completa sus precios para contar la ganancia.</p>`:""}
+        <p class="mt12" style="font-weight:700">Esta semana ganaste <b>${fmt(ws.gan)}</b>.</p></div>
+    </div>
+    <div class="stack">
+      <div class="card"><div class="stat"><div class="flame">${ic("flame",30)}</div><div><div class="big">${st.n} ${st.n===1?"día":"días"}</div><p class="muted small" style="font-weight:700">de racha</p></div></div>
+        <p class="small mt12 muted" style="font-weight:700">Comodín de esta semana: ${st.comodin?"usado":"disponible"} · si un día no entras, tu racha no se corta.</p>
+        <button class="btn ${checked?"btn-ghost":"btn-soft"} btn-block mt12" data-act="checkin" ${checked?"disabled":""}>${ic("check")} ${checked?"Ya registraste el día de hoy":"Hoy entré y avancé"}</button></div>
+      <div class="card"><p class="eyebrow">Tus 3 postres</p>
+        <div class="stack mt12">${S.plan.postres.map(id=>`<button class="row" style="border:0;background:none;padding:0;text-align:left" data-ficha="${id}"><div style="width:52px">${photoHTML(id).replace('class="ph','style="width:52px;height:52px;border-radius:14px" class="ph')}</div><div><b>${esc(R[id].n)}</b><div class="small muted" style="font-weight:700">${getPrecio(id)?fmt(getPrecio(id))+" por "+R[id].ud[0]:"Sin precio todavía"}</div></div></button>`).join("")}</div>
+        ${u?`<div class="note mt16"><b>${u.exact?"":"≈ "}${u.n} unidades por semana</b> para tu meta${u.exact?" (con tus precios reales).":". Estimación: se vuelve exacta cuando cargues tus precios."}</div>`:""}</div>
+      <button class="card" style="text-align:left;width:100%;cursor:pointer" data-go="bonos"><div class="row"><div class="flame" style="background:var(--sage-l);color:var(--sage-d)">${ic("gift",28)}</div><div><b>Tus bonos</b><p class="small muted" style="font-weight:700">Mensajes listos, fechas para vender, etiquetas, menú saludable y más.</p></div></div></button>
+    </div>
+  </div>`;
+}
+
+/* ---------- Vista: Mi plan ---------- */
+function viewPlan(){
+  const done=daysDone();const nd=nextDay();
+  return `<h1 class="page-title">Mi plan de <span>14 días</span></h1>
+  <p class="page-sub">Los días son libres: hazlos en el orden que quieras. Máximo 10 minutos por día.</p>
+  <div class="card"><div class="row between"><b>Camino a tu primera venta</b><span class="pill">${done}/14</span></div><div class="bar sage"><i style="width:${done/14*100}%"></i></div>
+  <p class="small muted" style="font-weight:700">Fecha para estar lista: ${fechaLarga(parseD(S.plan.meta))}</p></div>
+  ${STAGES.map(s=>`<section class="stage"><h3><span class="n">${s.n}</span>${s.t}</h3><div class="days">
+    ${s.days.map(d=>{const isDone=S.days[d]?.done;return `<button class="day-btn ${isDone?"done":d===nd?"next":""}" data-day="${d}"><span class="num">${isDone?ic("check",20):d}</span><span>${DAYS[d].t}<small>${isDone?"Hecho":d===nd?"Sigue esta":"Día "+d}</small></span></button>`;}).join("")}
+  </div></section>`).join("")}
+  ${done===14?`<button class="btn btn-rasp btn-block mt24" data-act="premio">${ic("trophy")} Ver mi insignia «Lista para vender»</button>`:""}`;
+}
+
+/* ---------- Vista: Postres ---------- */
+function rcard(id){const r=R[id];const [hi,ht]=HORNO_TX[r.horno];
+  return `<button class="rcard" data-ficha="${id}">${photoHTML(id)}<h4>${esc(r.n)}</h4>
+  <div class="meta"><span>${ic(hi,14)} ${ht}</span><span>· ${r.rinde} ${r.ud[1]}</span></div></button>`;}
+function viewPostres(){
+  const mine=S.plan.postres;const others=RECIPES.filter(r=>!mine.includes(r.id)).map(r=>r.id);
+  return `<h1 class="page-title">Tus <span>postres</span></h1>
+  <p class="page-sub">Todos sin azúcar agregada. Toca uno para ver la receta completa.</p>
+  <div class="card" style="background:linear-gradient(140deg,#fff,var(--rasp-l))"><div class="row between wrap gap16">
+    <div><b>Mi carta de precios</b><p class="small muted" style="font-weight:700">Una imagen con tus postres y precios, lista para WhatsApp e Instagram.</p></div>
+    <button class="btn btn-rasp" data-act="carta">${ic("image")} Crear mi carta</button></div></div>
+  <h3 class="mt24" style="margin-bottom:12px">Tus 3 elegidos</h3>
+  <div class="rgrid">${mine.map(rcard).join("")}</div>
+  <h3 class="mt24" style="margin-bottom:12px">Más postres para sumar</h3>
+  <div class="rgrid">${others.map(rcard).join("")}</div>`;
+}
+
+/* ---------- Vista: Precios ---------- */
+function viewPrecios(){
+  const mine=S.plan.postres;if(!S.precioId||!R[S.precioId])S.precioId=mine[0];
+  const id=S.precioId;const r=R[id];const c=recipeCost(id);const cfg=S.cfg[id]||{};
+  const sug=suggested(id);const precio=getPrecio(id);const unit=c.complete?c.unit:null;
+  const gan=(precio!==null&&unit!==null)?precio-unit:null;
+  const lowAlert=(precio!==null&&unit!==null&&precio<unit*1.5);
+  const others=RECIPES.filter(x=>!mine.includes(x.id));
+  return `<h1 class="page-title">Tus <span>precios</span></h1>
+  <p class="page-sub">Carga una sola vez cuánto pagas cada ingrediente. La app calcula costo, precio y ganancia.</p>
+  <div class="tabs" role="tablist">${mine.map(x=>`<button class="tab ${x===id?"on":""}" data-precio="${x}">${esc(R[x].n)}</button>`).join("")}
+    <select class="tab" id="otherRecipe" aria-label="Otros postres" style="padding-right:30px"><option value="">Otros postres…</option>${others.map(x=>`<option value="${x.id}" ${x.id===id?"selected":""}>${esc(x.n)}</option>`).join("")}</select></div>
+  <div class="two-col">
+    <div class="card"><h3>Ingredientes de: ${esc(r.n)}</h3><p class="small muted" style="font-weight:700">Escribe el precio del paquete y su tamaño. Se guarda solo y sirve para todos tus postres.</p>
+      ${r.ings.map(([k,q])=>{const i=INGS[k];const g=S.ings[k]||{};const uc=ingUnitCost(k);
+        return `<div class="ing-row"><div class="row between"><span class="name">${esc(ingName(k))}</span><span class="small muted" style="font-weight:800">usa ${qtyTx(q,i.u)}</span></div>
+        <div class="inputs"><div><label for="p-${k}">Precio del paquete</label><input class="input" id="p-${k}" inputmode="decimal" data-ingp="${k}" value="${esc(g.price??"")}" placeholder="${esc(cur().s)} 0"></div>
+        <div><label for="k-${k}">Tamaño del paquete</label><div class="unit-wrap"><input class="input" id="k-${k}" inputmode="decimal" data-ingk="${k}" value="${esc(g.pack??"")}" placeholder="${i.pack}"><span>${i.u==="u"?"u.":i.u}</span></div></div></div>
+        ${uc!==null?`<p class="small mt8" style="color:var(--sage-d);font-weight:800">En esta receta: ${fmtCost(uc*q)}</p>`:""}</div>`;}).join("")}
+    </div>
+    <div class="card sticky"><h3>Resultado</h3>
+      ${!c.complete?`<div class="alert mt8">${ic("star",18)}<span>Faltan precios de: ${c.missing.map(k=>INGS[k].n.toLowerCase()).join(", ")}.</span></div>`:""}
+      <div class="mt12">
+        <div class="sum-row"><span>Ingredientes</span><b>${fmtCost(c.ing)}</b></div>
+        <div class="sum-row"><span>Gas y luz (10%)</span><b>${fmtCost(c.gas)}</b></div>
+        <div class="field mt12"><label class="lbl" for="empaque">Empaque por unidad (vasito, bolsita, cajita)</label><div class="money"><span class="sym">${esc(cur().s)}</span><input class="input" id="empaque" inputmode="decimal" data-cfg="empaque" value="${esc(cfg.empaque??"")}" placeholder="0"></div></div>
+        <div class="sum-row"><span>Costo de la receta (rinde ${r.rinde} ${r.ud[1]})</span><b>${fmtCost(c.total)}</b></div>
+        <div class="sum-row total"><span>Costo por ${r.ud[0]}</span><b>${unit!==null?fmtCost(unit):"—"}</b></div>
+      </div>
+      <div class="note mt12"><span style="font-weight:800">Precio sugerido (costo × 2,5):</span> <b class="big-price" style="display:block">${sug!==null?fmt(sug):"—"}</b></div>
+      <div class="field mt16"><label class="lbl" for="miprecio">Tu precio de venta por ${r.ud[0]}</label><div class="money"><span class="sym">${esc(cur().s)}</span><input class="input" id="miprecio" inputmode="decimal" data-cfg="precio" value="${esc(cfg.precio??"")}" placeholder="${sug!==null?sug:"Primero carga los costos"}"></div>
+        <p class="small muted mt8" style="font-weight:700">Si lo dejas vacío, usamos el precio sugerido.</p><div class="err-msg" id="precioErr"></div></div>
+      <div class="sum-row"><span>Ganancia por ${r.ud[0]}</span><b style="color:var(--sage-d)">${gan!==null?fmt(gan):"—"}</b></div>
+      <div class="sum-row total"><span>Ganancia por tanda</span><b style="color:var(--sage-d)">${gan!==null?fmt(gan*r.rinde):"—"}</b></div>
+      ${lowAlert?`<div class="alert rasp mt12">${ic("star",18)}<span>Estás regalando tu trabajo: tu precio es menor que 1,5 veces el costo.</span></div>`:""}
+    </div>
+  </div>`;
+}
+
+/* ---------- Vista: Ventas ---------- */
+function shoppingList(){const pend=S.orders.filter(o=>!o.entregado);const tot={};
+  for(const o of pend){const r=R[o.recipe];const tandas=Math.ceil(o.qty/r.rinde);for(const [k,q] of r.ings){tot[k]=(tot[k]||0)+q*tandas;}}
+  return Object.entries(tot).map(([k,q])=>{const i=INGS[k];const pk=num(S.ings[k]?.pack)>0?num(S.ings[k].pack):i.pack;const packs=i.u==="u"&&pk===1?null:Math.ceil(q/pk);
+    return {k,q,txt:qtyTx(q,i.u),packs,pk,u:i.u};});}
+function viewVentas(){
+  const ms=monthStats();const ws=weekStats();const meta=num(S.profile.meta);const falta=Math.max(0,meta-ms.gan);const pct=meta>0?Math.min(100,ms.gan/meta*100):0;
+  const pend=S.orders.filter(o=>!o.entregado).sort((a,b)=>a.date.localeCompare(b.date));
+  const ent=S.orders.filter(o=>o.entregado).sort((a,b)=>b.date.localeCompare(a.date)).slice(0,30);
+  const list=shoppingList();
+  const orderRow=o=>{const g=orderGan(o);return `<div class="order"><div class="info"><b>${o.qty} × ${esc(R[o.recipe].n)}</b>
+    <small>${fechaLarga(parseD(o.date))}${o.cliente?" · "+esc(o.cliente):""} · Total ${fmt(o.price*o.qty)} · Ganancia ${g===null?"sin costo":fmt(g)}</small></div>
+    ${o.entregado?"":`<button class="icon-btn" data-deliver="${o.id}" aria-label="Marcar como entregado" title="Entregado" style="background:var(--sage-l);color:var(--sage-d)">${ic("check")}</button>`}
+    <button class="icon-btn" data-delorder="${o.id}" aria-label="Borrar pedido" title="Borrar">${ic("trash",20)}</button></div>`;};
+  return `<h1 class="page-title">Tus <span>ventas</span></h1>
+  <p class="page-sub">Anota cada pedido: la app suma tu ganancia y te arma la lista de compras.</p>
+  <div class="two-col">
+    <div class="stack">
+      <div class="card"><p class="eyebrow">Meta de ${mesNombre(new Date())}</p><h3 class="mt8">${falta>0?`Te faltan ${fmt(falta)}`:"¡Meta cumplida!"}</h3>
+        <div class="bar"><i style="width:${pct}%"></i></div>
+        <div class="sum-row"><span>Ganancia del mes</span><b>${fmt(ms.gan)}</b></div>
+        <div class="sum-row"><span>Ventas del mes</span><b>${fmt(ms.ventas)}</b></div>
+        <div class="sum-row total"><span>Esta semana ganaste</span><b style="color:var(--sage-d)">${fmt(ws.gan)}</b></div>
+        ${ms.sinCosto?`<p class="small mt8" style="color:var(--warn);font-weight:700">${ms.sinCosto} pedido(s) sin costo cargado: completa sus precios para contar la ganancia.</p>`:""}
+        <button class="btn btn-rasp btn-block mt16" data-act="nuevoPedido">${ic("plus")} Nuevo pedido</button></div>
+      <div class="card"><h3>Por preparar</h3>${pend.length?pend.map(orderRow).join(""):`<div class="empty">${ic("receipt",34)}<p>No tienes pedidos pendientes.</p></div>`}</div>
+      <div class="card"><h3>Entregados</h3>${ent.length?ent.map(orderRow).join(""):`<div class="empty"><p>Aquí verás tus ventas entregadas.</p></div>`}</div>
+    </div>
+    <div class="card sticky"><div class="row between"><h3>${ic("cart")} Lista de compras</h3></div>
+      <p class="small muted" style="font-weight:700">Se arma sola con tus pedidos por preparar.</p>
+      ${list.length?`<ul class="shop mt12">${list.map(x=>{const ok=!!S.comprado[x.k];return `<li class="${ok?"ok":""}"><input type="checkbox" id="sh-${x.k}" data-shop="${x.k}" ${ok?"checked":""}><label for="sh-${x.k}" style="flex:1"><span><b>${esc(ingName(x.k))}</b>: ${x.txt}${x.packs?` <small class="muted">(≈ ${x.packs} ${x.packs===1?"paquete":"paquetes"} de ${qtyTx(x.pk,x.u)})</small>`:""}</span></label></li>`;}).join("")}</ul>
+      <div class="row wrap mt16"><button class="btn btn-primary btn-sm" data-act="copyList">${ic("copy",18)} Copiar lista</button><button class="btn btn-ghost btn-sm" data-act="resetShop">Desmarcar todo</button></div>
+      <p class="small muted mt12">No incluye el empaque (vasitos, bolsitas, cajitas).</p>`
+      :`<div class="empty">${ic("cart",34)}<p>Carga un pedido y aquí aparece tu lista.</p></div>`}
+    </div>
+  </div>
+  <p class="note mt24">Tus datos se guardan en este dispositivo. Si borras el historial del navegador, se pierden. Puedes hacer una copia de seguridad en Ajustes.</p>`;
+}
+
+/* ---------- Vista: Bonos ---------- */
+function fillMsg(m,id){const r=R[id];const p=getPrecio(id);return m.replace(/\[postre\]/g,r.n.toLowerCase()).replace(/\[precio\]/g,p?fmt(p):"[precio]");}
+function viewBonos(){
+  const bt=S.bonoTab||"mensajes";const mine=S.plan.postres;
+  const tabs=[["mensajes","Mensajes de WhatsApp"],["fechas","Fechas para vender"],["etiquetas","Etiquetas"],["rentables","Más rentables"],["menu","Come sano gastando poco"]];
+  let body="";
+  if(bt==="mensajes"){const mid=S.msgPostre&&R[S.msgPostre]?S.msgPostre:mine[0];
+    body=`<div class="card"><h3>Mensajes listos para copiar</h3><p class="small muted" style="font-weight:700">Cambia lo que está entre corchetes antes de enviar.</p>
+    <div class="field mt12"><label class="lbl" for="msgPostre">Postre para los mensajes</label><select class="input" id="msgPostre">${RECIPES.map(r=>`<option value="${r.id}" ${r.id===mid?"selected":""}>${esc(r.n)}</option>`).join("")}</select></div>
+    ${MENSAJES.map((m,i)=>`<div class="msg"><b>${esc(m.t)}</b><p class="mt8" id="msg${i}">${esc(fillMsg(m.m,mid))}</p><div class="row"><button class="btn btn-soft btn-sm" data-copymsg="${i}">${ic("copy",18)} Copiar</button></div></div>`).join("")}</div>`;}
+  if(bt==="fechas"){body=`<div class="card"><h3>Calendario de fechas para vender</h3><p class="small muted" style="font-weight:700">Las fechas cambian según el país: confirma las de tu zona.</p>
+    <div style="overflow-x:auto"><table class="cal mt12"><thead><tr><th>Fecha</th><th>Cuándo</th><th>Qué vender</th></tr></thead><tbody>${FECHAS.map(f=>`<tr><td><b>${f[0]}</b></td><td>${f[1]}</td><td>${f[2]}</td></tr>`).join("")}</tbody></table></div>
+    <p class="note mt16">Tip: empieza a ofrecer 10 días antes de cada fecha y toma pedidos con seña.</p></div>`;}
+  if(bt==="etiquetas"){body=`<div class="card"><h3>Etiquetas para imprimir</h3><p class="small muted" style="font-weight:700">Llevan el nombre de tu emprendimiento, «Sin azúcar agregada» y espacio para la fecha.</p>
+    <div class="field mt12"><label class="lbl" for="lbMarca">Nombre de tu emprendimiento</label><input class="input" id="lbMarca" data-prof="marca" maxlength="40" value="${esc(S.profile.marca||"")}" placeholder="Ej.: Las delicias de Caro"></div>
+    <div class="field"><label class="lbl" for="lbContacto">Contacto (opcional)</label><input class="input" id="lbContacto" data-prof="contacto" maxlength="40" value="${esc(S.profile.contacto||"")}" placeholder="WhatsApp o Instagram"></div>
+    <p class="lbl">¿Para qué postres?</p>${RECIPES.map(r=>`<label class="check"><input type="checkbox" data-lbl="${r.id}" ${mine.includes(r.id)?"checked":""}> ${esc(r.n)}</label>`).join("")}
+    <div class="field mt12"><label class="lbl" for="lbCopias">Etiquetas por postre</label><input class="input" id="lbCopias" type="number" min="1" max="40" value="4"></div>
+    <button class="btn btn-primary btn-block" data-act="printLabels">${ic("print")} Imprimir etiquetas</button>
+    <p class="small muted mt12">Se imprimen en hoja A4, 10 por hoja. Puedes recortarlas o imprimir en papel autoadhesivo.</p></div>`;}
+  if(bt==="rentables"){const rows=RECIPES.map(r=>{const p=getPrecio(r.id),c=getCostoUnit(r.id);return {r,p,c,g:(p!==null&&c!==null)?p-c:null};}).filter(x=>x.g!==null).sort((a,b)=>b.g-a.g).slice(0,10);
+    body=`<div class="card"><h3>Tus postres más rentables</h3><p class="small muted" style="font-weight:700">Se ordenan por la ganancia que te deja cada unidad, con tus propios precios.</p>
+    ${rows.length?`<div style="overflow-x:auto"><table class="cal mt12"><thead><tr><th>#</th><th>Postre</th><th>Costo</th><th>Precio</th><th>Ganancia</th><th>Margen</th></tr></thead><tbody>${rows.map((x,i)=>`<tr><td>${i+1}</td><td><b>${esc(x.r.n)}</b></td><td>${fmtCost(x.c)}</td><td>${fmt(x.p)}</td><td style="color:var(--sage-d);font-weight:800">${fmt(x.g)}</td><td>${Math.round(x.g/x.p*100)}%</td></tr>`).join("")}</tbody></table></div>`
+      :`<div class="empty">${ic("tag",34)}<p>Carga los precios de tus ingredientes y aquí verás tu ranking.</p><button class="btn btn-soft btn-sm mt12" data-go="precios">Ir a Precios</button></div>`}
+    <div class="note mt16"><b>Guía de margen:</b> con el precio sugerido (costo × 2,5) te queda alrededor del 60% de cada venta. Los postres en vaso y las cajas de regalo suelen permitir cobrar más por la presentación.</div></div>`;}
+  if(bt==="menu"){body=`<div class="card"><h3>Come sano gastando poco: menú de 7 días</h3><p class="small muted" style="font-weight:700">Comidas simples y económicas para tu casa, con ingredientes de todo el año.</p>
+    ${MENU7.map(d=>`<div class="menu-day"><b>${d[0]}</b><div class="small mt8"><b style="color:var(--ink)">Desayuno:</b> ${d[1]}<br><b style="color:var(--ink)">Almuerzo:</b> ${d[2]}<br><b style="color:var(--ink)">Cena:</b> ${d[3]}</div></div>`).join("")}
+    <div class="note mt16"><b>5 claves para gastar menos:</b><br>1. Compra legumbres secas (lentejas, garbanzos): rinden muchísimo.<br>2. Elige verduras y frutas de estación.<br>3. Cocina el doble y congela porciones.<br>4. Planifica la semana y compra con lista.<br>5. Transforma las sobras en una comida nueva.</div>
+    <p class="small muted mt12">Menú orientativo para una alimentación general. No reemplaza la indicación de un profesional de la salud.</p></div>`;}
+  return `<h1 class="page-title">Tus <span>bonos</span></h1><p class="page-sub">Herramientas extra para vender más y mejor.</p>
+  <div class="tabs">${tabs.map(([k,t])=>`<button class="tab ${bt===k?"on":""}" data-bono="${k}">${t}</button>`).join("")}</div>${body}`;
+}
+
+/* ================== EVENTOS DE LAS VISTAS ================== */
+function bindView(v){
+  fillIcons(v);
+  // ingredientes
+  $$("[data-ingp],[data-ingk]",v).forEach(inp=>inp.addEventListener("change",()=>{
+    const k=inp.dataset.ingp||inp.dataset.ingk;const field=inp.dataset.ingp?"price":"pack";const val=num(inp.value);
+    S.ings[k]=S.ings[k]||{};
+    if(inp.value.trim()===""){delete S.ings[k][field];}
+    else if(!(val>=0)||(field==="pack"&&!(val>0))){toast(field==="pack"?"El tamaño debe ser mayor que cero":"Escribe un precio válido (sin números negativos)");inp.value=S.ings[k][field]??"";return;}
+    else S.ings[k][field]=val;
+    save();keepFocusRender(inp.id);}));
+  $$("[data-cfg]",v).forEach(inp=>inp.addEventListener("change",()=>{
+    const id=S.precioId;const f=inp.dataset.cfg;const val=num(inp.value);S.cfg[id]=S.cfg[id]||{};
+    if(inp.value.trim()===""){delete S.cfg[id][f];}
+    else if(!(val>=0)||(f==="precio"&&!(val>0))){toast("Escribe un número válido mayor que cero");inp.value=S.cfg[id][f]??"";return;}
+    else S.cfg[id][f]=val;
+    save();keepFocusRender(inp.id);}));
+  const other=$("#otherRecipe",v);if(other)other.onchange=()=>{if(other.value)go("precios",{precio:other.value});};
+  const mp=$("#msgPostre",v);if(mp)mp.onchange=()=>{S.msgPostre=mp.value;save();render();};
+  $$("[data-prof]",v).forEach(inp=>inp.addEventListener("change",()=>{S.profile[inp.dataset.prof]=inp.value.trim();save();}));
+  $$("[data-shop]",v).forEach(cb=>cb.onchange=()=>{S.comprado[cb.dataset.shop]=cb.checked;save();cb.closest("li").classList.toggle("ok",cb.checked);});
+}
+function keepFocusRender(lastId){const ae=document.activeElement;const nextId=ae&&ae.id&&ae.id!==lastId?ae.id:null;const y=window.scrollY;render();window.scrollTo(0,y);if(nextId){const el=document.getElementById(nextId);if(el)el.focus();}}
+
+document.addEventListener("click",e=>{
+  const t=e.target.closest("[data-go],[data-act],[data-day],[data-ficha],[data-precio],[data-bono],[data-deliver],[data-delorder],[data-copymsg]");
+  if(!t)return;
+  if(t.dataset.go){closeModal();return go(t.dataset.go);}
+  if(t.dataset.day)return openDay(+t.dataset.day);
+  if(t.dataset.ficha)return openFicha(t.dataset.ficha);
+  if(t.dataset.precio)return go("precios",{precio:t.dataset.precio});
+  if(t.dataset.bono)return go("bonos",{bono:t.dataset.bono});
+  if(t.dataset.deliver){const o=S.orders.find(x=>x.id===t.dataset.deliver);if(o){o.entregado=true;addActivity();save();render();toast("¡Entregado! Bien hecho");}return;}
+  if(t.dataset.delorder){if(confirm("¿Borrar este pedido?")){S.orders=S.orders.filter(x=>x.id!==t.dataset.delorder);save();render();}return;}
+  if(t.dataset.copymsg){return copyText($("#msg"+t.dataset.copymsg).textContent);}
+  const a=t.dataset.act;
+  if(a==="sos")return openSOS();
+  if(a==="ajustes")return openAjustes();
+  if(a==="checkin"){addActivity();render();toast("¡Día registrado! Tu racha sigue");return;}
+  if(a==="premio")return openPremio();
+  if(a==="carta")return openCarta();
+  if(a==="nuevoPedido")return openPedido();
+  if(a==="copyList"){const l=shoppingList();return copyText("Lista de compras · Postres Fit que Venden\n"+l.map(x=>`• ${ingName(x.k)}: ${x.txt}${x.packs?` (≈ ${x.packs} ${x.packs===1?"paquete":"paquetes"})`:""}`).join("\n"));}
+  if(a==="resetShop"){S.comprado={};save();render();return;}
+  if(a==="printLabels")return printLabels();
+});
+
+/* ================== MODALES ================== */
+let lastFocus=null;
+function openModal(html,cls=""){lastFocus=document.activeElement;const m=$("#modal");m.innerHTML=`<div class="sheet ${cls}">${html}</div>`;m.hidden=false;document.body.style.overflow="hidden";fillIcons(m);
+  const f=m.querySelector("[data-autofocus]")||m.querySelector("button,input,select,textarea");if(f)setTimeout(()=>f.focus(),60);}
+function closeModal(){const m=$("#modal");if(m.hidden)return;m.hidden=true;m.innerHTML="";document.body.style.overflow="";if(lastFocus&&document.contains(lastFocus))lastFocus.focus();}
+$("#modal").addEventListener("click",e=>{if(e.target.id==="modal"||e.target.closest("[data-close]"))closeModal();});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeModal();});
+const head=(t)=>`<div class="sheet-head"><h2>${t}</h2><button class="icon-btn" data-close aria-label="Cerrar">${ic("close")}</button></div>`;
+
+/* --- Día --- */
+function openDay(n){const d=DAYS[n];const st=STAGES.find(s=>s.days.includes(n));const isDone=S.days[n]?.done;
+  let extra="";
+  if(d.notes)extra+=`<div class="field mt16"><label class="lbl" for="dayNotes">Tus notas</label><textarea class="input" id="dayNotes" placeholder="¿Cómo salió? ¿Qué te dijeron?">${esc(S.notes[n]||"")}</textarea></div>`;
+  if(d.brand)extra+=`<div class="field mt16"><label class="lbl" for="dayBrand">Nombre de tu emprendimiento</label><input class="input" id="dayBrand" maxlength="40" value="${esc(S.profile.marca||"")}" placeholder="Ej.: Las delicias de Caro"></div>`;
+  if(d.list)extra+=`<ul class="mt12" style="padding-left:20px;font-weight:700">${d.list.map(x=>`<li style="padding:4px 0">${x}</li>`).join("")}</ul>`;
+  openModal(`${head(`Día ${n}`)}<p class="eyebrow">Etapa ${st.n}: ${st.t} · 10 minutos</p><h2 class="mt8" style="font-size:1.6rem">${d.t}</h2>
+    <p class="mt12" style="font-size:1.05rem">${d.tx}</p>${extra}
+    ${d.go?`<button class="btn btn-soft btn-block mt16" id="dayGo">${d.goTx}</button>`:""}
+    <div class="note mt16" style="background:var(--rasp-l);color:var(--rasp-d);font-weight:800">${ic("star",16)} ${d.an}</div>
+    <button class="btn ${isDone?"btn-ghost":"btn-primary"} btn-block mt16" id="dayDone">${isDone?"Marcar como no hecho":ic("check")+" ¡Hecho!"}</button>`);
+  const saveExtras=()=>{const nt=$("#dayNotes");if(nt){S.notes[n]=nt.value;}const br=$("#dayBrand");if(br){S.profile.marca=br.value.trim();}save();};
+  $("#dayNotes")?.addEventListener("input",saveExtras);$("#dayBrand")?.addEventListener("input",saveExtras);
+  $("#dayGo")?.addEventListener("click",()=>{saveExtras();closeModal();const g=d.go;
+    if(g==="carta"){openCarta();}else if(g.startsWith("bonos:"))go("bonos",{bono:g.split(":")[1]});else go(g);});
+  $("#dayDone").onclick=()=>{saveExtras();
+    if(d.brand&&!isDone&&!S.profile.marca){const br=$("#dayBrand");br.classList.add("err");br.focus();toast("Escribe el nombre de tu emprendimiento");return;}
+    if(isDone){delete S.days[n];save();closeModal();render();return;}
+    S.days[n]={done:true,date:today()};addActivity();save();closeModal();render();
+    if(daysDone()===14&&!S.premioVisto){S.premioVisto=true;save();setTimeout(openPremio,300);}else toast(`¡Día ${n} hecho! ${d.an}`);};
+}
+
+/* --- Ficha de receta --- */
+function openFicha(id){const r=R[id];const [hi,ht]=HORNO_TX[r.horno];const mine=S.plan.postres.includes(id);const p=getPrecio(id);
+  openModal(`<div class="ficha-hero">${photoHTML(id)}<div class="top-actions"><button class="icon-btn" data-close aria-label="Volver">${ic("back")}</button><button class="icon-btn" id="fShare" aria-label="Compartir ficha">${ic("share")}</button></div></div>
+  <div class="ficha-body">
+    <div class="row wrap"><span class="pill">${ic("leaf",14)} Sin azúcar agregada</span>${mine?`<span class="pill rasp">${ic("star",14)} De tus 3</span>`:""}</div>
+    <h2 class="mt12">${esc(r.n)}</h2><p class="muted" style="font-weight:700">${esc(r.d)}</p>
+    <div class="facts"><span>${ic("clock",18)} ${r.tiempo}</span><span>${ic("users",18)} Rinde ${r.rinde} ${r.ud[1]}</span><span>${ic(hi,18)} ${ht}</span>${p?`<span style="color:var(--sage-d)">${ic("tag",18)} ${fmt(p)} c/u</span>`:""}</div>
+    ${r.nota?`<div class="alert mt12">${ic("star",18)}<span>${esc(r.nota)}</span></div>`:""}
+    <h3 class="mt24">Ingredientes</h3><ul class="ing-list">${r.ings.map((x,i)=>`<li><button aria-label="Marcar ingrediente" data-ingcheck="${i}">${ic("check",16)}</button><span>${esc(x[2])}</span></li>`).join("")}</ul>
+    <h3 class="mt24">Preparación</h3><ol class="steps">${r.pasos.map(s=>`<li><span>${esc(s)}</span></li>`).join("")}</ol>
+    <div class="note mt16" style="background:var(--sage-l);color:var(--sage-d)"><b>Tip de venta:</b> ${esc(r.tip)}</div>
+    ${mine?"":`<button class="btn btn-ghost btn-block mt16" id="fSwap">Cambiar por uno de mis 3</button>`}
+    <div class="sticky-cta"><button class="btn btn-primary" id="fCalc">${ic("tag")} Calcular precio</button></div>
+  </div>`,"full");
+  $$("[data-ingcheck]").forEach(b=>b.onclick=()=>b.closest("li").classList.toggle("ok"));
+  $("#fCalc").onclick=()=>{closeModal();go("precios",{precio:id});};
+  $("#fShare").onclick=()=>shareImage("ficha",{id});
+  $("#fSwap")?.addEventListener("click",()=>{
+    openModal(`${head("¿Cuál reemplazas?")}<p class="muted" style="font-weight:700">«${esc(r.n)}» entra en tus 3 postres en lugar de:</p>
+    <div class="stack mt16">${S.plan.postres.map(x=>`<button class="opt" data-swap="${x}"><span>${esc(R[x].n)}</span></button>`).join("")}</div>`);
+    $$("[data-swap]").forEach(b=>b.onclick=()=>{S.plan.postres=S.plan.postres.map(x=>x===b.dataset.swap?id:x);save();closeModal();render();toast("¡Listo! Tus 3 postres se actualizaron");});
+  });
+}
+
+/* --- SOS --- */
+function openSOS(){openModal(`${head(`${ic("life")} SOS`)}<p class="muted" style="font-weight:700">¿Qué te pasa? Elige y te damos una salida rápida.</p>
+  <div class="stack mt16">${SOS.map(s=>`<button class="opt" data-sos="${s.id}"><span>${s.t}</span>${ic("back",20,'style="transform:rotate(180deg)"')}</button>`).join("")}</div>`);
+  $$("[data-sos]").forEach(b=>b.onclick=()=>{const s=SOS.find(x=>x.id===b.dataset.sos);const mid=S.plan.postres[0];
+    openModal(`${head(s.t)}<p style="font-size:1.05rem;font-weight:700">${s.r}</p>
+    <h3 class="mt16">Qué hacer ahora</h3><ul style="padding-left:20px">${s.a.map(x=>`<li style="padding:5px 0">${x}</li>`).join("")}</ul>
+    ${s.m?`<div class="msg"><b>Mensaje para copiar</b><p class="mt8" id="sosMsg">${esc(fillMsg(s.m,mid))}</p><div class="row"><button class="btn btn-soft btn-sm" id="sosCopy">${ic("copy",18)} Copiar</button></div></div>`:""}
+    <button class="btn btn-ghost btn-block mt16" id="sosBack">Ver otros problemas</button>`);
+    $("#sosCopy")?.addEventListener("click",()=>copyText($("#sosMsg").textContent));$("#sosBack").onclick=openSOS;});
+}
+
+/* --- Nuevo pedido --- */
+function openPedido(){const mine=S.plan.postres;const first=mine[0];
+  openModal(`${head("Nuevo pedido")}
+  <div class="field"><label class="lbl" for="pRec">Postre</label><select class="input" id="pRec"><optgroup label="Tus 3 postres">${mine.map(id=>`<option value="${id}">${esc(R[id].n)}</option>`).join("")}</optgroup><optgroup label="Otros">${RECIPES.filter(r=>!mine.includes(r.id)).map(r=>`<option value="${r.id}">${esc(r.n)}</option>`).join("")}</optgroup></select></div>
+  <div class="field"><label class="lbl" for="pQty">Cantidad (unidades)</label><input class="input" id="pQty" type="number" inputmode="numeric" min="1" step="1" value="1"><div class="err-msg" id="eQty"></div></div>
+  <div class="field"><label class="lbl" for="pPrice">Precio por unidad</label><div class="money"><span class="sym">${esc(cur().s)}</span><input class="input" id="pPrice" inputmode="decimal" value="${getPrecio(first)??""}"></div><div class="err-msg" id="ePrice"></div></div>
+  <div class="field"><label class="lbl" for="pDate">Fecha de entrega</label><input class="input" id="pDate" type="date" value="${today()}"></div>
+  <div class="field"><label class="lbl" for="pCli">Cliente (opcional)</label><input class="input" id="pCli" maxlength="40" placeholder="Ej.: Marta, vecina"></div>
+  <p class="small muted" id="pInfo"></p>
+  <button class="btn btn-rasp btn-block mt12" id="pSave">${ic("check")} Guardar pedido</button>`);
+  const info=()=>{const id=$("#pRec").value;const c=getCostoUnit(id);$("#pInfo").textContent=c===null?"Este postre todavía no tiene costos cargados: la ganancia se calculará cuando los cargues.":`Costo por unidad: ${fmtCost(c)}.`;};
+  $("#pRec").onchange=()=>{const p=getPrecio($("#pRec").value);$("#pPrice").value=p??"";info();};info();
+  $("#pSave").onclick=()=>{const qty=parseInt($("#pQty").value,10);const price=num($("#pPrice").value);let ok=true;
+    $("#eQty").textContent="";$("#ePrice").textContent="";
+    if(!(qty>=1)){$("#eQty").textContent="La cantidad debe ser 1 o más.";ok=false;}
+    if(!(price>0)){$("#ePrice").textContent="Escribe un precio mayor que cero.";ok=false;}
+    const date=$("#pDate").value||today();if(!ok)return;const id=$("#pRec").value;
+    S.orders.push({id:uid(),recipe:id,qty,price,date,cliente:$("#pCli").value.trim(),costUnit:getCostoUnit(id),entregado:false,created:Date.now()});
+    addActivity();save();closeModal();render();toast("¡Pedido guardado!");};
+}
+
+/* --- Ajustes --- */
+function openAjustes(){const p=S.profile;
+  openModal(`${head("Ajustes")}
+  <div class="field"><label class="lbl" for="aNom">Tu nombre</label><input class="input" id="aNom" maxlength="30" value="${esc(p.nombre||"")}"></div>
+  <div class="field"><label class="lbl" for="aMarca">Nombre de tu emprendimiento</label><input class="input" id="aMarca" maxlength="40" value="${esc(p.marca||"")}"></div>
+  <div class="field"><label class="lbl" for="aCont">Contacto (WhatsApp o Instagram)</label><input class="input" id="aCont" maxlength="40" value="${esc(p.contacto||"")}"></div>
+  <div class="field"><label class="lbl" for="aMon">Moneda</label><select class="input" id="aMon">${MONEDAS.map(m=>`<option value="${m.c}" ${p.moneda===m.c?"selected":""}>${m.l} (${m.s})</option>`).join("")}</select></div>
+  <div class="field"><label class="lbl" for="aMeta">Meta de ganancia por mes</label><input class="input" id="aMeta" inputmode="decimal" value="${esc(p.meta||"")}"><div class="err-msg" id="aErr"></div></div>
+  <div class="field"><label class="lbl" for="aRef">Precio de una porción de torta en tu zona</label><input class="input" id="aRef" inputmode="decimal" value="${esc(p.precioRef||"")}"></div>
+  <button class="btn btn-primary btn-block" id="aSave">Guardar cambios</button>
+  <div class="note mt16">Tus datos se guardan en este dispositivo. Si borras el historial del navegador, se pierden. No se sincronizan entre el celular y la computadora.</div>
+  <div class="row wrap mt16"><button class="btn btn-soft btn-sm" id="aExport">${ic("download",18)} Descargar copia</button>
+    <label class="btn btn-soft btn-sm" for="aImport" style="cursor:pointer">${ic("upload",18)} Restaurar copia</label><input type="file" id="aImport" accept="application/json" class="sr"></div>
+  <div class="row wrap mt16"><button class="btn btn-ghost btn-sm" id="aQuiz">Rehacer el quiz</button><button class="btn btn-ghost btn-sm" id="aReset" style="color:var(--rasp-d)">Borrar todo</button></div>`);
+  $("#aSave").onclick=()=>{const meta=num($("#aMeta").value),ref=num($("#aRef").value);
+    if(!(meta>0)||!(ref>0)){$("#aErr").textContent="La meta y el precio de referencia deben ser mayores que cero.";return;}
+    Object.assign(S.profile,{nombre:$("#aNom").value.trim()||p.nombre,marca:$("#aMarca").value.trim(),contacto:$("#aCont").value.trim(),moneda:$("#aMon").value,meta,precioRef:ref});
+    save();closeModal();render();toast("Cambios guardados");};
+  $("#aExport").onclick=()=>{const blob=new Blob([JSON.stringify(S,null,1)],{type:"application/json"});downloadBlob(blob,`postres-fit-copia-${today()}.json`);};
+  $("#aImport").onchange=e=>{const f=e.target.files[0];if(!f)return;const rd=new FileReader();rd.onload=()=>{try{const d=JSON.parse(rd.result);if(!d.profile||!d.plan)throw 0;S=Object.assign(defaults(),d);save();closeModal();startApp();toast("Copia restaurada");}catch(_){toast("Ese archivo no es una copia válida");}};rd.readAsText(f);};
+  $("#aQuiz").onclick=()=>{if(!confirm("Vas a responder el quiz otra vez. Se mantienen tus precios, ventas y días hechos. ¿Seguir?"))return;closeModal();OB={step:0,ans:Object.assign({},S.profile)};renderOnb();};
+  $("#aReset").onclick=()=>{if(!confirm("Se borrará todo: plan, precios y ventas. ¿Seguro?"))return;localStorage.removeItem(KEY);S=defaults();closeModal();OB={step:-1,ans:{moneda:"ARS"}};renderOnb();};
+}
+
+/* --- Etiquetas para imprimir --- */
+function printLabels(){const ids=$$("[data-lbl]").filter(c=>c.checked).map(c=>c.dataset.lbl);
+  const copies=Math.min(40,Math.max(1,parseInt($("#lbCopias").value,10)||1));
+  if(!ids.length){toast("Elige al menos un postre");return;}
+  const marca=S.profile.marca||"Mis postres fit";const contacto=S.profile.contacto||"";
+  const labels=[];ids.forEach(id=>{for(let i=0;i<copies;i++)labels.push(id);});
+  $("#printArea").innerHTML=`<div class="labels">${labels.map(id=>`<div class="label"><div class="lb-brand">${esc(marca)}</div><div class="lb-name">${esc(R[id].n)}</div><span class="lb-tag">Sin azúcar agregada</span>
+    <div class="lb-lines">Elaborado: ____ / ____<br>Consumir antes de: ____ / ____${NEEDS_FRIDGE.includes(id)?"<br>Conservar en heladera":""}${id==="tiramisu"?"<br><b>Contiene café</b>":""}</div>${contacto?`<div class="lb-contact">${esc(contacto)}</div>`:""}</div>`).join("")}</div>`;
+  document.body.classList.add("printing");
+  const done=()=>{document.body.classList.remove("printing");window.removeEventListener("afterprint",done);};
+  window.addEventListener("afterprint",done);setTimeout(()=>{window.print();setTimeout(done,1500);},50);
+}
+
+/* ================== IMÁGENES (carta, ficha e insignia) ================== */
+const imgCache={};
+function loadImg(url){if(!url)return Promise.resolve(null);if(imgCache[url]!==undefined)return Promise.resolve(imgCache[url]);
+  return new Promise(res=>{const im=new Image();im.crossOrigin="anonymous";let done=false;
+    const fin=v=>{if(done)return;done=true;imgCache[url]=v;res(v);};im.onload=()=>fin(im);im.onerror=()=>fin(null);setTimeout(()=>fin(null),7000);im.src=url;});}
+function rr(ctx,x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);ctx.arcTo(x+w,y,x+w,y+h,r);ctx.arcTo(x+w,y+h,x,y+h,r);ctx.arcTo(x,y+h,x,y,r);ctx.arcTo(x,y,x+w,y,r);ctx.closePath();}
+function wrapText(ctx,text,x,y,maxW,lh,maxLines=3){const words=String(text).split(" ");let line="",lines=[];
+  for(const w of words){const t=line?line+" "+w:w;if(ctx.measureText(t).width>maxW&&line){lines.push(line);line=w;}else line=t;}if(line)lines.push(line);
+  lines=lines.slice(0,maxLines);lines.forEach((l,i)=>ctx.fillText(l,x,y+i*lh));return lines.length*lh;}
+const GRAD={horneado:["#F6E7D6","#EAF1EC"],galleta:["#F3E4D2","#FBE4EA"],vaso:["#FBE4EA","#EAF1EC"],bocado:["#EDE1D6","#FBE4EA"]};
+async function drawPhoto(ctx,id,x,y,w,h,r,noPhotos){ctx.save();rr(ctx,x,y,w,h,r);ctx.clip();
+  const g=ctx.createLinearGradient(x,y,x+w,y+h);const c=GRAD[R[id].grupo];g.addColorStop(0,c[0]);g.addColorStop(1,c[1]);ctx.fillStyle=g;ctx.fillRect(x,y,w,h);
+  const im=noPhotos?null:await loadImg(FOTOS[id]);
+  if(im){const s=Math.max(w/im.width,h/im.height);const iw=im.width*s,ih=im.height*s;ctx.drawImage(im,x+(w-iw)/2,y+(h-ih)/2,iw,ih);}
+  else{ctx.fillStyle="rgba(74,117,88,.18)";ctx.beginPath();ctx.arc(x+w/2,y+h/2,Math.min(w,h)*0.22,0,Math.PI*2);ctx.fill();
+    ctx.strokeStyle="rgba(74,117,88,.45)";ctx.lineWidth=Math.max(3,w/90);const p=new Path2D(ICONS[GRUPO_IC[R[id].grupo]].match(/d="([^"]+)"/g)?.map(s=>s.slice(3,-1)).join(" ")||"");
+    ctx.save();const sc=Math.min(w,h)*0.22/12;ctx.translate(x+w/2-12*sc,y+h/2-12*sc);ctx.scale(sc,sc);ctx.lineWidth=1.6;ctx.lineCap="round";ctx.lineJoin="round";ctx.stroke(p);ctx.restore();}
+  ctx.restore();}
+function bgCream(ctx,W,H){const g=ctx.createLinearGradient(0,0,W,H);g.addColorStop(0,"#FBF6EE");g.addColorStop(1,"#F6E9EC");ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+  ctx.fillStyle="rgba(127,163,138,.12)";ctx.beginPath();ctx.arc(W*0.92,H*0.06,W*0.28,0,Math.PI*2);ctx.fill();
+  ctx.fillStyle="rgba(212,93,121,.10)";ctx.beginPath();ctx.arc(W*0.05,H*0.95,W*0.32,0,Math.PI*2);ctx.fill();}
+const F=(w,s)=>`${w} ${s}px Nunito, ui-rounded, system-ui, sans-serif`;
+async function makeCanvas(type,o,noPhotos=false){
+  try{await document.fonts?.ready;}catch(_){}
+  const cv=document.createElement("canvas");const W=1080;const H=type==="post"?1350:1920;cv.width=W;cv.height=H;const ctx=cv.getContext("2d");bgCream(ctx,W,H);
+  const marca=S.profile.marca||"Mis postres fit";const contacto=S.profile.contacto||"";
+  if(type==="ficha"){const r=R[o.id];const p=getPrecio(o.id);
+    await drawPhoto(ctx,o.id,90,140,900,900,48,noPhotos);
+    ctx.fillStyle="#4A7558";ctx.font=F(800,40);ctx.textAlign="left";ctx.fillText(marca.toUpperCase(),90,1130);
+    ctx.fillStyle="#3B2F2A";ctx.font=F(900,84);const hh=wrapText(ctx,r.n,90,1230,900,92,2);
+    ctx.fillStyle="#B23F5C";rr(ctx,90,1230+hh-40,420,72,36);ctx.fill();ctx.fillStyle="#fff";ctx.font=F(800,36);ctx.fillText("Sin azúcar agregada",122,1230+hh+8);
+    if(p){ctx.fillStyle="#4A7558";ctx.font=F(900,120);ctx.fillText(fmt(p),90,1230+hh+190);ctx.fillStyle="#7A6B63";ctx.font=F(700,40);ctx.fillText("por "+r.ud[0],90,1230+hh+250);}
+    ctx.fillStyle="#3B2F2A";ctx.font=F(800,44);ctx.fillText(contacto?"Pedidos: "+contacto:"Pedidos por mensaje",90,1820);}
+  if(type==="historia"||type==="post"){const ids=o.ids;const top=type==="post"?110:170;
+    ctx.textAlign="center";ctx.fillStyle="#4A7558";ctx.font=F(800,38);ctx.fillText("CARTA DE PRECIOS",W/2,top);
+    ctx.fillStyle="#3B2F2A";let fs=type==="post"?78:92;ctx.font=F(900,fs);while(ctx.measureText(marca).width>940&&fs>48){fs-=4;ctx.font=F(900,fs);}wrapText(ctx,marca,W/2,top+(type==="post"?95:115),940,fs+4,1);
+    ctx.fillStyle="#B23F5C";ctx.font=F(800,38);ctx.fillText("Postres sin azúcar agregada",W/2,top+(type==="post"?160:195));
+    ctx.textAlign="left";const startY=top+(type==="post"?220:270);const footer=type==="post"?140:210;const avail=H-startY-footer;
+    const rowH=Math.min(type==="post"?190:230,Math.floor(avail/ids.length));const ph=rowH-36;const off=Math.max(0,(avail-rowH*ids.length)/2-40);
+    for(let i=0;i<ids.length;i++){const id=ids[i];const y=startY+off+i*rowH;ctx.fillStyle="rgba(255,253,249,.94)";rr(ctx,70,y,940,rowH-20,36);ctx.fill();
+      await drawPhoto(ctx,id,88,y+8,ph,ph,26,noPhotos);
+      ctx.fillStyle="#3B2F2A";const tw=940-ph-60-220;let nf=Math.min(46,rowH*0.24);const nl=f=>{ctx.font=F(900,f);let l=1,cur="";for(const w of R[id].n.split(" ")){const t=cur?cur+" "+w:w;if(ctx.measureText(t).width>tw&&cur){l++;cur=w;}else cur=t;}return l;};while(nl(nf)>2&&nf>24)nf-=2;ctx.font=F(900,nf);wrapText(ctx,R[id].n,88+ph+28,y+rowH*0.30,tw,nf*1.08,2);
+      ctx.fillStyle="#7A6B63";ctx.font=F(700,Math.min(32,rowH*0.17));ctx.fillText("por "+R[id].ud[0],88+ph+28,y+rowH-36);
+      ctx.textAlign="right";ctx.fillStyle="#4A7558";ctx.font=F(900,Math.min(58,rowH*0.3));ctx.fillText(fmt(getPrecio(id)),985,y+rowH/2+12);ctx.textAlign="left";}
+    ctx.textAlign="center";ctx.fillStyle="#3B2F2A";ctx.font=F(800,44);ctx.fillText(contacto?"Pedidos: "+contacto:"Pedidos por mensaje",W/2,H-footer/2+10);}
+  if(type==="premio"){ctx.textAlign="center";const cx=W/2,cy=640;
+    const g=ctx.createRadialGradient(cx,cy,40,cx,cy,330);g.addColorStop(0,"#7FA38A");g.addColorStop(1,"#4A7558");ctx.fillStyle=g;ctx.beginPath();ctx.arc(cx,cy,300,0,Math.PI*2);ctx.fill();
+    ctx.strokeStyle="#F6DDE3";ctx.lineWidth=18;ctx.beginPath();ctx.arc(cx,cy,330,0,Math.PI*2);ctx.stroke();
+    ctx.strokeStyle="#fff";ctx.lineWidth=34;ctx.lineCap="round";ctx.lineJoin="round";ctx.beginPath();ctx.moveTo(cx-120,cy+10);ctx.lineTo(cx-30,cy+100);ctx.lineTo(cx+140,cy-90);ctx.stroke();
+    ctx.fillStyle="#B23F5C";ctx.font=F(800,44);ctx.fillText("INSIGNIA",cx,230);
+    ctx.fillStyle="#3B2F2A";ctx.font=F(900,110);ctx.fillText("Lista para vender",cx,1100);
+    ctx.font=F(800,60);ctx.fillStyle="#4A7558";ctx.fillText(S.profile.nombre||"",cx,1200);
+    ctx.fillStyle="#7A6B63";ctx.font=F(700,40);ctx.fillText("Completé mi plan de 14 días",cx,1270);
+    ctx.fillStyle="#3B2F2A";ctx.font=F(800,42);S.plan.postres.forEach((id,i)=>ctx.fillText("• "+R[id].n,cx,1380+i*62));
+    const fg=firstGan();if(fg){ctx.fillStyle="#B23F5C";rr(ctx,190,1600,700,110,55);ctx.fill();ctx.fillStyle="#fff";ctx.font=F(900,46);ctx.fillText("Mi primera ganancia: "+fmt(fg),cx,1672);}
+    ctx.fillStyle="#7A6B63";ctx.font=F(700,36);ctx.fillText((S.profile.marca?S.profile.marca+" · ":"")+new Date().toLocaleDateString("es",{day:"numeric",month:"long",year:"numeric"}),cx,1820);}
+  try{ctx.getImageData(0,0,1,1);}catch(e){if(!noPhotos)return makeCanvas(type,o,true);}
+  return cv;}
+function downloadBlob(blob,name){const u=URL.createObjectURL(blob);const a=document.createElement("a");a.href=u;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),4000);}
+async function shareImage(type,o,title){
+  openModal(`${head(title||"Tu imagen")}<div class="empty"><div class="spinner" style="width:54px;height:54px;border-width:6px;margin-bottom:12px"></div><p>Preparando tu imagen…</p></div>`);
+  const cv=await makeCanvas(type,o);const url=cv.toDataURL("image/png");const name=(type==="premio"?"insignia-lista-para-vender":type==="ficha"?"ficha-"+o.id:"mi-carta-de-precios")+".png";
+  if($("#modal").hidden)return;
+  openModal(`${head(title||"Tu imagen")}<img class="preview-img" src="${url}" alt="Vista previa de la imagen">
+    <div class="row wrap mt16" style="justify-content:center"><button class="btn btn-primary" id="imgDl">${ic("download")} Descargar</button>${navigator.share?`<button class="btn btn-soft" id="imgSh">${ic("share")} Compartir</button>`:""}</div>
+    <p class="small muted mt12" style="text-align:center">Ideal para el estado de WhatsApp y tus historias.</p>`);
+  $("#imgDl").onclick=()=>cv.toBlob(b=>downloadBlob(b,name),"image/png");
+  $("#imgSh")?.addEventListener("click",()=>cv.toBlob(async b=>{const file=new File([b],name,{type:"image/png"});
+    try{if(navigator.canShare&&navigator.canShare({files:[file]}))await navigator.share({files:[file],title:"Postres Fit"});else downloadBlob(b,name);}catch(_){}} ,"image/png"));
+}
+function openPremio(){shareImage("premio",{},"¡Lista para vender!");}
+
+/* --- Mi carta de precios --- */
+function openCarta(){const mine=S.plan.postres;
+  openModal(`${head("Mi carta de precios")}
+  <div class="field"><label class="lbl" for="cMarca">Nombre de tu emprendimiento</label><input class="input" id="cMarca" maxlength="40" value="${esc(S.profile.marca||"")}" placeholder="Ej.: Las delicias de Caro"></div>
+  <div class="field"><label class="lbl" for="cCont">Contacto (opcional)</label><input class="input" id="cCont" maxlength="40" value="${esc(S.profile.contacto||"")}" placeholder="WhatsApp o Instagram"></div>
+  <p class="lbl">Formato</p><div class="row wrap"><label class="check"><input type="radio" name="cFmt" value="historia" checked> Historia o estado (1080 × 1920)</label><label class="check"><input type="radio" name="cFmt" value="post"> Publicación (1080 × 1350)</label></div>
+  <p class="lbl mt12">Postres (hasta 6)</p>${RECIPES.map(r=>{const has=getPrecio(r.id)!==null;return `<label class="check"><input type="checkbox" data-cp="${r.id}" ${mine.includes(r.id)?"checked":""}> ${esc(r.n)} <span class="small ${has?"muted":""}" style="font-weight:700;${has?"":"color:var(--warn)"}">· ${has?fmt(getPrecio(r.id)):"sin precio"}</span></label>`;}).join("")}
+  <div id="cWarn"></div>
+  <button class="btn btn-rasp btn-block mt16" id="cGen">${ic("image")} Generar mi carta</button>`);
+  $("#cGen").onclick=()=>{S.profile.marca=$("#cMarca").value.trim();S.profile.contacto=$("#cCont").value.trim();save();
+    const ids=$$("[data-cp]").filter(c=>c.checked).map(c=>c.dataset.cp);const fmtSel=$$("[name=cFmt]").find(x=>x.checked).value;
+    if(!ids.length){$("#cWarn").innerHTML=`<div class="alert mt12">Elige al menos un postre.</div>`;return;}
+    const max=fmtSel==="post"?5:6;if(ids.length>max){$("#cWarn").innerHTML=`<div class="alert mt12">Para este formato elige hasta ${max} postres.</div>`;return;}
+    const sinPrecio=ids.filter(id=>getPrecio(id)===null);
+    if(sinPrecio.length){$("#cWarn").innerHTML=`<div class="alert mt12">${ic("star",18)}<span>Estos postres no tienen precio cargado: ${sinPrecio.map(id=>R[id].n).join(", ")}. Cárgalo en Precios o quítalos de la carta.</span></div>
+      <div class="row wrap mt12"><button class="btn btn-soft btn-sm" data-go="precios">Ir a Precios</button>${ids.length>sinPrecio.length?`<button class="btn btn-ghost btn-sm" id="cSin">Generar sin esos</button>`:""}</div>`;fillIcons($("#cWarn"));
+      $("#cSin")?.addEventListener("click",()=>shareImage(fmtSel,{ids:ids.filter(id=>!sinPrecio.includes(id))},"Mi carta de precios"));return;}
+    shareImage(fmtSel,{ids},"Mi carta de precios");};
+}
+
+/* ================== INICIO ================== */
+fillIcons();
+if(S.profile.done&&S.plan){startApp();}else{renderOnb();}
+</script>
+</body>
+</html>
